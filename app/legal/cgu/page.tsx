@@ -1,101 +1,102 @@
-import LegalShell from "@/components/LegalShell";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import ChatbotWidget from "@/components/ChatbotWidget";
 
-export const metadata = { title: "Terms of Use (CGU) — AIPLB" };
+export default function GeneratedPage() {
+return (
+    <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+      <style jsx global>{`
+        :root {
+          --bg: #06140E;
+          --primary: #10B981;
+          --accent: #FBBF24;
+        }
+        body {
+          color: #E5E7EB;
+          line-height: 1.6;
+        }
+        h1, h2, h3 {
+          color: #F9FAFB;
+        }
+        a {
+          color: var(--accent);
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      `}</style>
+      <Nav />
+      <article style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
+        <header style={{ marginBottom: '3rem' }}>
+          <h1 style={{ fontSize: '2.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Conditions Générales d'Utilisation</h1>
+          <p style={{ fontSize: '1.125rem', color: '#9CA3AF' }}>Autonomous IP licensing agent</p>
+        </header>
 
-export default function CguPage() {
-  return (
-    <LegalShell title="Terms of Use (CGU)" updated="2026-04-25">
-      <h2>1. Object</h2>
-      <p>
-        These Terms of Use (the "CGU") govern access to and use of the AIPLB
-        service ("AIPLB", "we", "us") operated by Sakal Org SAS, a French
-        société par actions simplifiée registered in France (the "Publisher").
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Objet</h2>
+          <p>Ces Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du service IP Licensing Bot, un agent autonome conçu pour surveiller l'utilisation de brevets sur le web et faciliter l'octroi de licences commerciales.</p>
+        </section>
 
-      <h2>2. Acceptance</h2>
-      <p>
-        By creating an account or using AIPLB, the user ("you", "User") fully
-        and unreservedly accepts these CGU. If you do not accept, do not use
-        the service.
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Acceptation</h2>
+          <p>En accédant ou utilisant le service, vous acceptez sans réserve ces CGU et notre Politique de Confidentialité. Si vous n'acceptez pas ces termes, ne continuez pas à utiliser le service.</p>
+        </section>
 
-      <h2>3. Account & access</h2>
-      <ul>
-        <li>You must be at least 18 years old and have the capacity to bind your organisation.</li>
-        <li>You are responsible for safeguarding your authentication credentials.</li>
-        <li>One account = one human user. Sharing credentials is forbidden.</li>
-        <li>We may suspend or terminate access in case of abuse, fraud, security incident or non-payment.</li>
-      </ul>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Compte utilisateur</h2>
+          <p>Vous devez créer un compte pour utiliser certaines fonctionnalités. Vous êtes responsable de la confidentialité de vos identifiants et de toutes les activités associées à votre compte.</p>
+          <p>Vous devez fournir des informations exactes et à jour. Nous nous réservons le droit de suspendre ou supprimer tout compte en cas d'information frauduleuse.</p>
+        </section>
 
-      <h2>4. Permitted use</h2>
-      <p>
-        AIPLB lets you monitor publicly available web content of third-party
-        companies (the "Tracked Sites"). You agree to:
-      </p>
-      <ul>
-        <li>Only track sites whose Terms of Service permit automated reading of public pages.</li>
-        <li>Not use AIPLB to access any non-public, paywalled or login-gated content of third parties.</li>
-        <li>Not use AIPLB for harassment, defamation, or any unlawful purpose.</li>
-        <li>Not attempt to circumvent rate limits, security or access controls of AIPLB itself.</li>
-      </ul>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Tarifs et paiements</h2>
+          <p>Les tarifs sont indiqués sur notre site et peuvent être modifiés à tout moment. Les paiements sont effectués via des passerelles sécurisées et sont non remboursables sauf disposition légale.</p>
+          <p>En cas de retard de paiement, des frais de retard de 1,5% par mois seront appliqués. Tout impayé peut entraîner la suspension de votre accès au service.</p>
+        </section>
 
-      <h2>5. Intellectual property</h2>
-      <p>
-        AIPLB's software, brand, content and data model are the exclusive
-        property of the Publisher. You receive a non-exclusive,
-        non-transferable licence to use the service for the duration of your
-        subscription. Content you input (competitor URLs, notes) remains
-        yours; we have a non-exclusive right to process it to deliver the
-        service.
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Obligations de l'utilisateur</h2>
+          <p>Vous vous engagez à utiliser le service uniquement pour des fins légales et à ne pas interférer avec son fonctionnement normal. Vous ne devez pas tenter d'accéder à des données non autorisées ou perturber le service.</p>
+          <p>Vous êtes seul responsable du contenu que vous soumettez via le service. Vous garantissez qu'il ne viole aucun droit de propriété intellectuelle ou autre droit de tiers.</p>
+        </section>
 
-      <h2>6. Snapshots & generated reports</h2>
-      <p>
-        Snapshots and digest reports produced by AIPLB may contain extracts of
-        third-party public pages, processed for the purpose of competitive
-        intelligence. You are responsible for the use you make of these
-        reports inside your organisation.
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Propriété intellectuelle</h2>
+          <p>Le service et son contenu (sauf contributions utilisateurs) sont la propriété exclusive de IP Licensing Bot. Vous obtenez une licence limitée, non exclusive et non transférable pour utiliser le service selon ces CGU.</p>
+          <p>Les contributions utilisateurs restent votre propriété, mais vous nous accordez une licence mondiale, non exclusive pour les utiliser dans le cadre du service.</p>
+        </section>
 
-      <h2>7. Liability</h2>
-      <p>
-        AIPLB is provided "as is". We use reasonable means to deliver the
-        service but make no warranty of uninterrupted operation, completeness
-        of data, or accuracy of the AI-generated commentary. To the maximum
-        extent permitted by law, the Publisher's aggregate liability is
-        limited to the fees paid by you over the 12 months preceding the
-        claim. The Publisher is not liable for indirect or consequential
-        damages.
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Données personnelles</h2>
+          <p>Nous collectons des données personnelles nécessaires à la fourniture du service. Ces données sont traitées conformément à notre Politique de Confidentialité et aux lois applicables, notamment le RGPD.</p>
+          <p>Vous avez le droit d'accéder, rectifier ou supprimer vos données personnelles. Pour exercer ces droits, contactez-nous via les coordonnées fournies dans la Politique de Confidentialité.</p>
+        </section>
 
-      <h2>8. Service changes</h2>
-      <p>
-        We may add, modify or retire features. Material changes affecting
-        paid plans will be communicated by email at least 30 days in advance.
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Limitation de responsabilité</h2>
+          <p>Nous ne garantissons pas que le service sera ininterrompu ou exempt d'erreurs. Nous ne sommes pas responsables des dommages indirects, consécutifs ou punitifs résultant de l'utilisation ou de l'impossibilité d'utiliser le service.</p>
+          <p>Notre responsabilité totale envers vous pour toute réclamation découlant de ces CGU est limitée au montant que vous avez payé pour le service au cours des 12 derniers mois.</p>
+        </section>
 
-      <h2>9. Termination</h2>
-      <p>
-        You may cancel your subscription anytime from your customer portal;
-        access continues until the end of the current billing period. We may
-        terminate immediately for material breach. On termination your data
-        is retained for 12 months for legal continuity, then deleted (see
-        <a href="/legal/privacy"> Privacy Policy</a>).
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Résiliation</h2>
+          <p>Vous pouvez résilier votre compte à tout moment via les paramètres du compte. Nous pouvons résilier ou suspendre votre accès immédiatement si vous violez ces CGU ou la loi applicable.</p>
+          <p>En cas de résiliation, les frais non remboursables restent dus pour les services déjà fournis. Les obligations survivantes (propriété intellectuelle, confidentialité) continuent de s'appliquer après la résiliation.</p>
+        </section>
 
-      <h2>10. Governing law</h2>
-      <p>
-        These CGU are governed by French law. Any dispute will first be
-        attempted in good faith; failing amicable resolution, the courts of
-        Paris, France shall have exclusive jurisdiction, except for
-        consumers' mandatory protections.
-      </p>
+        <section style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Loi applicable et litiges</h2>
+          <p>Ces CGU sont régies par le droit français. Tout litige relatif à ces CGU sera soumis aux tribunaux compétents de Paris, France, avec renonciation à tout autre for ou tribunal.</p>
+          <p>En cas de conflit entre ces CGU et toute autre politique ou document, ces CGU prévalent sauf indication contraire expresse.</p>
+        </section>
 
-      <h2>11. Contact</h2>
-      <p>
-        For any question about these CGU: <a href="/contact">/contact</a> or
-        legal@aiplb.app.
-      </p>
-    </LegalShell>
+        <footer style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #374151' }}>
+          <p style={{ color: '#9CA3AF', fontSize: '0.875rem' }}>Dernière mise à jour : 2026-04-26</p>
+        </footer>
+      </article>
+      <ChatbotWidget />
+      <Footer />
+    </main>
   );
 }
