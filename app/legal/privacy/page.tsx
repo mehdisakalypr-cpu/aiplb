@@ -1,12 +1,7 @@
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)', '--bg': '#06140E' }}>
-      <Nav />
-      <header className="py-16 px-4 sm:px-6 lg:px-8 text-center">
+<header className="py-16 px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-5xl font-bold text-white">Politique de confidentialité</h1>
         <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">Comment nous protégeons vos données personnelles dans le cadre de l&apos;utilisation de l&apos;IP Licensing Bot</p>
       </header>
@@ -45,9 +40,6 @@ return (
           </div>
         </article>
       </section>
-
-      <ChatbotWidget />
-      <Footer />
-    </main>
+</main>
   );
 }
