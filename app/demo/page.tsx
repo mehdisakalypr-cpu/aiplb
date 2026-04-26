@@ -1,159 +1,152 @@
 "use client";
 
+import Link from "next/link";
 export default function GeneratedPage() {
 return (
-    <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      
-
-      {/* Hero */}
-      <header className="relative w-full py-20 px-4 text-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#10B981]/20 via-[#FBBF24]/10 to-transparent" />
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Démo de IP Licensing Bot</h1>
-          <h2 className="text-xl md:text-2xl text-gray-300">Sur la marque <span className="font-semibold text-white">Stripe</span></h2>
-        </div>
+    <main style={{ minHeight: '100vh', background: '#06140E' }}>
+      <header className="text-center py-16 px-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Démo de IP Licensing Bot</h1>
+        <h2 className="text-xl md:text-2xl text-white opacity-80">Sur HubSpot</h2>
       </header>
 
-      {/* Preview Cards */}
-      <section className="px-4 pb-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="px-4 pb-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card 1: Snapshot */}
-          <article className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden">
-            <header className="p-4 border-b border-white/10 bg-white/5">
-              <h3 className="font-semibold text-white">Snapshot des utilisations</h3>
-              <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-full">snapshot</span>
+          <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+            <header className="bg-slate-700 p-3 flex justify-between items-center">
+              <h3 className="text-white font-semibold">Snapshot</h3>
+              <span className="text-xs bg-slate-600 text-white px-2 py-1 rounded">12/05/2025 14:32</span>
             </header>
-            <div className="p-4 space-y-3 text-sm">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Stripe Checkout utilisé sur 12 sites partenaires</span>
-                <span className="text-green-400 font-mono">2024-05-10</span>
+            <div className="p-4 space-y-3 text-sm text-slate-300">
+              <div className="flex justify-between">
+                <span>Pricing page: /pricing</span>
+                <span className="text-green-400">$29/mois</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Facturation récurrente intégrée dans une app SaaS</span>
-                <span className="text-green-400 font-mono">2024-05-09</span>
+              <div className="flex justify-between">
+                <span>Feature: AI Chatbot</span>
+                <span className="text-green-400">Activé</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Paiement en 1 clic sur un site e-commerce</span>
-                <span className="text-green-400 font-mono">2024-05-08</span>
+              <div className="flex justify-between">
+                <span>User segment: Startup</span>
+                <span className="text-yellow-400">Nouveau</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">API Stripe utilisée pour un don caritatif</span>
-                <span className="text-green-400 font-mono">2024-05-07</span>
+              <div className="flex justify-between">
+                <span>Geolocation: US-East</span>
+                <span className="text-red-400">⚠️ Non conforme</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Paiement fractionné sur une plateforme de formation</span>
-                <span className="text-green-400 font-mono">2024-05-06</span>
+              <div className="flex justify-between">
+                <span>License ID: L-2025-05-12-7842</span>
+                <span className="text-green-400">Valide</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Abonnement premium via Stripe sur un blog</span>
-                <span className="text-green-400 font-mono">2024-05-05</span>
+              <div className="flex justify-between">
+                <span>Domain: hubspot.com</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Paiement en devises multiples pour un SaaS B2B</span>
-                <span className="text-green-400 font-mono">2024-05-04</span>
+              <div className="flex justify-between">
+                <span>IP detected: 20.81.111.83</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Stripe Connect utilisé pour un marketplace</span>
-                <span className="text-green-400 font-mono">2024-05-03</span>
+              <div className="flex justify-between">
+                <span>Last scan: 2025-05-12 14:28</span>
+                <span className="text-green-400">✓</span>
               </div>
             </div>
           </article>
 
           {/* Card 2: Diff */}
-          <article className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden">
-            <header className="p-4 border-b border-white/10 bg-white/5">
-              <h3 className="font-semibold text-white">Différences détectées</h3>
-              <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-full">diff</span>
+          <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+            <header className="bg-slate-700 p-3 flex justify-between items-center">
+              <h3 className="text-white font-semibold">Diff</h3>
+              <span className="text-xs bg-slate-600 text-white px-2 py-1 rounded">12/05/2025 14:32</span>
             </header>
-            <div className="p-4 space-y-3 text-sm">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouveau site utilisant Stripe Checkout</span>
-                <span className="text-yellow-400 font-mono">2024-05-10</span>
+            <div className="p-4 space-y-3 text-sm text-slate-300">
+              <div className="flex justify-between">
+                <span>Old price: $19/mois</span>
+                <span className="text-red-400">→ $29/mois</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Version modifiée de l’API intégrée</span>
-                <span className="text-yellow-400 font-mono">2024-05-09</span>
+              <div className="flex justify-between">
+                <span>Old feature: Basic Chat</span>
+                <span className="text-green-400">→ AI Chatbot</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouveau partenaire utilisant Stripe Connect</span>
-                <span className="text-yellow-400 font-mono">2024-05-08</span>
+              <div className="flex justify-between">
+                <span>Old segment: SMB</span>
+                <span className="text-yellow-400">→ Startup</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouvelle fonctionnalité de paiement en crypto</span>
-                <span className="text-yellow-400 font-mono">2024-05-07</span>
+              <div className="flex justify-between">
+                <span>Old geolocation: EU</span>
+                <span className="text-red-400">→ US-East</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouveau modèle de tarification pour les abonnements</span>
-                <span className="text-yellow-400 font-mono">2024-05-06</span>
+              <div className="flex justify-between">
+                <span>Old license: L-2025-04-08-1123</span>
+                <span className="text-green-400">→ L-2025-05-12-7842</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouveau SDK intégré dans une app mobile</span>
-                <span className="text-yellow-400 font-mono">2024-05-05</span>
+              <div className="flex justify-between">
+                <span>Old domain: old.hubspot.com</span>
+                <span className="text-green-400">→ hubspot.com</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouveau pays supporté pour les paiements</span>
-                <span className="text-yellow-400 font-mono">2024-05-04</span>
+              <div className="flex justify-between">
+                <span>Old IP: 20.81.110.12</span>
+                <span className="text-green-400">→ 20.81.111.83</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Nouvelle intégration avec un CRM tiers</span>
-                <span className="text-yellow-400 font-mono">2024-05-03</span>
+              <div className="flex justify-between">
+                <span>Old scan: 2025-05-11 10:15</span>
+                <span className="text-green-400">→ 2025-05-12 14:28</span>
               </div>
             </div>
           </article>
 
           {/* Card 3: Digest */}
-          <article className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden">
-            <header className="p-4 border-b border-white/10 bg-white/5">
-              <h3 className="font-semibold text-white">Résumé des actions</h3>
-              <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-full">digest</span>
+          <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+            <header className="bg-slate-700 p-3 flex justify-between items-center">
+              <h3 className="text-white font-semibold">Digest</h3>
+              <span className="text-xs bg-slate-600 text-white px-2 py-1 rounded">12/05/2025 14:32</span>
             </header>
-            <div className="p-4 space-y-3 text-sm">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">12 utilisations non autorisées détectées</span>
-                <span className="text-red-400 font-mono">2024-05-10</span>
+            <div className="p-4 space-y-3 text-sm text-slate-300">
+              <div className="flex justify-between">
+                <span>Total pages scanned: 42</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">3 partenaires ont modifié leur intégration</span>
-                <span className="text-red-400 font-mono">2024-05-09</span>
+              <div className="flex justify-between">
+                <span>New non-compliant: 1</span>
+                <span className="text-red-400">⚠️</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">1 nouveau site utilise Stripe sans licence</span>
-                <span className="text-red-400 font-mono">2024-05-08</span>
+              <div className="flex justify-between">
+                <span>License renewals: 3</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">2 intégrations obsolètes détectées</span>
-                <span className="text-red-400 font-mono">2024-05-07</span>
+              <div className="flex justify-between">
+                <span>Price changes: 2</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">1 partenaire a accepté une licence commerciale</span>
-                <span className="text-green-400 font-mono">2024-05-06</span>
+              <div className="flex justify-between">
+                <span>Feature updates: 1</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">3 lettres de mise en demeure envoyées</span>
-                <span className="text-red-400 font-mono">2024-05-05</span>
+              <div className="flex justify-between">
+                <span>Geolocation shifts: 1</span>
+                <span className="text-red-400">⚠️</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">1 intégration conforme à la licence</span>
-                <span className="text-green-400 font-mono">2024-05-04</span>
+              <div className="flex justify-between">
+                <span>Domain changes: 1</span>
+                <span className="text-green-400">✓</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">2 nouveaux partenaires en attente de réponse</span>
-                <span className="text-yellow-400 font-mono">2024-05-03</span>
+              <div className="flex justify-between">
+                <span>IP changes: 1</span>
+                <span className="text-green-400">✓</span>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-4 py-16 text-center">
-        <a
+      <section className="text-center py-16 px-4">
+        <Link
           href="/contact?from=demo"
-          className="inline-block bg-[#10B981] hover:bg-[#059669] text-white font-semibold px-8 py-4 rounded-lg transition-colors"
-          aria-label="Lancer ma démo"
+          style={{ background: '#10B981', color: '#FFFFFF' }}
+          className="inline-block px-8 py-4 rounded-lg font-semibold text-lg transition hover:opacity-90"
         >
           Lancer ma démo
-        </a>
+        </Link>
       </section>
     </main>
   );
