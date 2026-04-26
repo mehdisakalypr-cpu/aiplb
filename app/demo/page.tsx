@@ -104,13 +104,7 @@ const cardData = [
       </section>
 
       <section className="text-center mb-16">
-        <a
-          href="/demo/exemple"
-          className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-opacity-90 transition-colors duration-300"
-          aria-label="Voir le rapport complet de la démo"
-        >
-          Cliquez pour voir le rapport complet
-        </a>
+        
       </section>
 
       <section className="text-center">
