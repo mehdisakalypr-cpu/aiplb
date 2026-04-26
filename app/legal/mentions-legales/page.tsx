@@ -1,9 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
@@ -14,8 +10,7 @@ return (
           --accent: #FBBF24;
         }
       `}</style>
-      <Nav />
-      <header className="py-16 px-4 sm:px-6 lg:px-8">
+<header className="py-16 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-white text-center">Mentions légales</h1>
       </header>
 
@@ -47,9 +42,6 @@ return (
           </div>
         </article>
       </section>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
