@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import TierPill from "./TierPill";
 
-type Me = { id: string; email: string; is_admin?: boolean } | null;
+type Me = { id: string; email: string; plan?: string; is_admin?: boolean } | null;
 
 const LINKS = [
   { href: "/", label: "Accueil" },
@@ -29,7 +30,7 @@ export default function Nav() {
       .then((r) => (r.ok ? r.json() : Promise.resolve({ user: null })))
       .then((d) => {
         if (!cancelled) {
-          setMe(d.user ? { ...d.user, is_admin: !!d.is_admin } : null);
+          setMe(d.user ? { ...d.user, plan: d.plan ?? "free", is_admin: !!d.is_admin } : null);
           setLoading(false);
         }
       })
@@ -87,7 +88,8 @@ export default function Nav() {
           {loading ? (
             <div className="h-8 w-24 rounded bg-neutral-900 animate-pulse" />
           ) : me ? (
-            <div className="relative">
+            <div className="relative flex items-center gap-2">
+              <TierPill plan={me.plan} />
               <button
                 onClick={() => setDropOpen((v) => !v)}
                 className="flex items-center gap-2 rounded-md border border-[var(--border)] px-3 py-1.5 hover:bg-neutral-900"
@@ -142,6 +144,7 @@ export default function Nav() {
           )}
         </div>
 
+        {me ? <span className="md:hidden mr-2"><TierPill plan={me.plan} /></span> : null}
         <button
           aria-label="Ouvrir le menu"
           aria-expanded={open}
@@ -166,6 +169,12 @@ export default function Nav() {
 
       {open && (
         <div className="md:hidden border-t border-[var(--border)] px-6 py-4 space-y-3 text-sm bg-[var(--background)]">
+          {me ? (
+            <div className="pb-2 border-b border-[var(--border)] flex items-center justify-between">
+              <span className="text-[var(--muted)] text-xs">Statut d&apos;offre</span>
+              <TierPill plan={me.plan} />
+            </div>
+          ) : null}
           {LINKS.map((l) => (
             <Link
               key={l.href}
