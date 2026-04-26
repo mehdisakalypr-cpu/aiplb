@@ -1,127 +1,126 @@
 "use client";
 
+import Link from "next/link";
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       
 
-      <header className="relative w-full py-16 md:py-24">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">FAQ</h1>
-        </div>
+      <header className="relative w-full py-16 px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl font-bold text-white">FAQ</h1>
       </header>
 
-      <section className="container mx-auto px-6 py-12">
-        <div className="max-w-3xl mx-auto space-y-8">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <article className="space-y-12">
           {/* Produit */}
-          <article>
+          <section>
             <h2 className="text-2xl font-semibold text-white mb-6">Produit</h2>
             <div className="space-y-4">
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
                   Comment l'outil détecte-t-il l'utilisation de mon brevet ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  IP Licensing Bot scanne les dépôts publics de code, les publications en ligne, les bases de données techniques et les forums. Il compare les extraits de code ou descriptions avec les caractéristiques de votre brevet.
+                <p className="mt-4 text-gray-300">
+                  IP Licensing Bot scanne en continu les sites publics, dépôts open source et bases de données techniques. Il repère les extraits de code, mentions ou implémentations correspondant à votre brevet via une analyse sémantique et des empreintes uniques.
                 </p>
               </details>
 
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
-                  Puis-je refuser une licence proposée ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
+                  Puis-je imposer une licence commerciale à un utilisateur ?
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Oui. Vous recevez un brouillon de lettre de mise en demeure avec une offre de licence. Vous pouvez modifier les termes, supprimer la licence, ou contacter l'utilisateur pour négocier directement.
+                <p className="mt-4 text-gray-300">
+                  Oui. Une fois l'utilisation détectée, l'outil génère automatiquement une lettre de mise en demeure avec une proposition de licence commerciale. Vous validez ou modifiez les termes avant envoi. L'utilisateur peut accepter en un clic.
                 </p>
               </details>
 
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
-                  Le bot fonctionne-t-il en temps réel ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
+                  L'outil fonctionne-t-il pour les brevets logiciels ?
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Non. Les scans sont planifiés quotidiennement pour limiter la charge réseau. Les alertes sont envoyées par email avec un lien vers votre tableau de bord pour consulter les détails et agir.
+                <p className="mt-4 text-gray-300">
+                  Oui, mais uniquement si votre brevet couvre une fonctionnalité logicielle brevetée (algorithme, architecture, méthode). Les simples idées ou concepts ne sont pas couverts par la détection automatique.
                 </p>
               </details>
             </div>
-          </article>
+          </section>
 
           {/* Pricing */}
-          <article>
+          <section>
             <h2 className="text-2xl font-semibold text-white mb-6">Pricing</h2>
             <div className="space-y-4">
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
                   Puis-je changer de formule après souscription ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Oui. Vous pouvez passer à une formule inférieure ou supérieure à tout moment. Les ajustements de prix sont calculés au prorata pour le mois en cours.
+                <p className="mt-4 text-gray-300">
+                  Oui. Vous pouvez passer à une formule supérieure à tout moment depuis votre tableau de bord. Les frais sont recalculés au prorata. Aucune pénalité n'est appliquée.
                 </p>
               </details>
 
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
-                  Que se passe-t-il si je dépasse le quota de brevets ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
+                  Que se passe-t-il si je résilie avant la fin de mon engagement ?
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Votre compte est désactivé pour les nouveaux scans. Vous recevez un email pour mettre à jour votre formule. Les scans en cours s'arrêtent immédiatement.
+                <p className="mt-4 text-gray-300">
+                  Vous pouvez résilier à tout moment depuis votre espace client. Les frais de résiliation anticipée correspondent au solde des mois restants à prix plein, sans engagement futur.
                 </p>
               </details>
             </div>
-          </article>
+          </section>
 
           {/* Sécurité & data */}
-          <article>
+          <section>
             <h2 className="text-2xl font-semibold text-white mb-6">Sécurité & data</h2>
             <div className="space-y-4">
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
-                  Où sont hébergés mes brevets et données ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
+                  Où sont hébergés mes brevets et les données collectées ?
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Sur des serveurs sécurisés en France (Hetzner Paris). Les données sont chiffrées au repos et en transit. Aucune sauvegarde n'est exportée hors de l'UE.
+                <p className="mt-4 text-gray-300">
+                  Toutes les données sont stockées sur des serveurs européens certifiés ISO 27001, hébergés en France. Les sauvegardes sont chiffrées et répliquées sur deux datacenters distincts.
                 </p>
               </details>
 
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
-                Puis-je exporter mes données personnelles ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
+                  Puis-je exporter mes données de détection ?
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Oui. Via votre espace client, vous pouvez télécharger une archive de vos données (bibliothèque de brevets, historique des scans, factures). Le traitement est effectué sous 30 jours.
+                <p className="mt-4 text-gray-300">
+                  Oui. Vous pouvez exporter l'intégralité de vos données de détection au format JSON ou CSV depuis votre tableau de bord. Ces exports sont chiffrés et accessibles pendant 7 jours.
                 </p>
               </details>
 
-              <details className="group border-b border-gray-700 py-4">
-                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
-                Comment supprimer définitivement mon compte ?
-                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+              <details className="group bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                <summary className="font-medium text-white cursor-pointer flex justify-between items-center">
+                  Comment l'outil respecte-t-il le RGPD ?
+                  <span className="text-gray-400 group-hover:text-primary transition-colors">▼</span>
                 </summary>
-                <p className="mt-4 text-gray-300 pl-1">
-                  Dans les paramètres de votre compte, cliquez sur "Supprimer mon compte". Toutes vos données sont effacées sous 90 jours. Les scans en cours sont interrompus immédiatement.
+                <p className="mt-4 text-gray-300">
+                  Aucune donnée personnelle n'est collectée sans votre consentement. Les adresses IP des utilisateurs détectés sont anonymisées après 24h. Vous gérez vous-même les contacts avec les contrevenants.
                 </p>
               </details>
             </div>
-          </article>
-        </div>
+          </section>
+        </article>
       </section>
 
-      <section className="container mx-auto px-6 py-16 text-center">
-        <h2 className="text-2xl font-semibold text-white mb-6">Une autre question ?</h2>
-        <a
-          href="https://aiplb.vercel.app/contact"
-          className="inline-block bg-accent text-black font-bold py-3 px-8 rounded-lg hover:bg-yellow-300 transition-colors"
-          aria-label="Contactez-nous pour toute question supplémentaire"
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+        <h2 className="text-xl font-medium text-white mb-6">Une autre question ?</h2>
+        <Link
+          href="/contact"
+          className="inline-block bg-accent text-black font-semibold px-6 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
+          aria-label="Poser une question supplémentaire"
         >
-          Contacter l'équipe
-        </a>
+          Contactez-nous
+        </Link>
       </section>
     </main>
   );
