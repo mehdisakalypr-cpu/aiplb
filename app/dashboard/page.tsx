@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import TierBadge from "@/components/TierBadge";
 
 type Competitor = {
   id: string;
@@ -60,6 +61,8 @@ export default function Dashboard() {
 
   return (
     <main>
+      <TierBadge />
+
       <div className="mx-auto max-w-6xl px-6 py-10">
         <h1 className="text-2xl font-semibold tracking-tight">Competitors</h1>
 
