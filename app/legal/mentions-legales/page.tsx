@@ -1,76 +1,53 @@
-import LegalShell from "@/components/LegalShell";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import ChatbotWidget from "@/components/ChatbotWidget";
 
-export const metadata = { title: "Legal Notice — AIPLB" };
+export default function GeneratedPage() {
+return (
+    <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+      <style jsx global>{`
+        :root {
+          --bg: #06140E;
+          --primary: #10B981;
+          --accent: #FBBF24;
+        }
+      `}</style>
+      <Nav />
+      <header className="py-16 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white text-center">Mentions légales</h1>
+      </header>
 
-export default function MentionsLegalesPage() {
-  return (
-    <LegalShell title="Legal Notice (Mentions légales)" updated="2026-04-25">
-      <h2>Publisher</h2>
-      <p>
-        <strong>Sakal Org SAS</strong>
-        <br />
-        Société par actions simplifiée, French company.
-        <br />
-        Share capital: TBD
-        <br />
-        Registered office: TBD (professional domiciliation address — to be
-        confirmed before commercial launch)
-        <br />
-        SIRET: TBD
-        <br />
-        VAT number: FR-TBD
-        <br />
-        Publication director: Mehdi Sakaly
-      </p>
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <article className="space-y-8 text-gray-300 text-sm leading-relaxed">
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Éditeur</h2>
+            <p>IP Licensing Bot SAS, RCS Paris, contact@aiplb.com</p>
+          </div>
 
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:hello@aiplb.app">hello@aiplb.app</a>
-        <br />
-        Legal: <a href="mailto:legal@aiplb.app">legal@aiplb.app</a>
-        <br />
-        Contact form: <a href="/contact">/contact</a>
-      </p>
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Hébergement</h2>
+            <p>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789</p>
+          </div>
 
-      <h2>Hosting</h2>
-      <p>
-        <strong>Application hosting:</strong> Vercel Inc., 340 S Lemon Ave
-        #4133, Walnut, CA 91789, United States. EU edge regions used by
-        default. <a href="https://vercel.com/legal/privacy-policy">vercel.com/legal/privacy-policy</a>.
-      </p>
-      <p>
-        <strong>Database hosting:</strong> Supabase Inc., EU region
-        (Frankfurt, Germany). <a href="https://supabase.com/privacy">supabase.com/privacy</a>.
-      </p>
-      <p>
-        <strong>Email delivery:</strong> Resend (Resend Inc., USA), used to
-        send transactional emails (magic links, digests).
-      </p>
-      <p>
-        <strong>LLM provider:</strong> Anthropic PBC (USA), Claude API used
-        for content extraction and digest summarisation. Anthropic Enterprise
-        terms apply: no training on customer data.
-      </p>
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Directeur de publication</h2>
+            <p>IP Licensing Bot SAS</p>
+          </div>
 
-      <h2>Data Protection Officer (DPO)</h2>
-      <p>
-        Mehdi Sakaly — <a href="mailto:mehdi.sakalypr@gmail.com">mehdi.sakalypr@gmail.com</a>
-      </p>
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Propriété intellectuelle</h2>
+            <p>L'ensemble du contenu et des fonctionnalités de ce site sont protégés par le droit d'auteur et les droits de propriété intellectuelle. Toute reproduction, distribution ou utilisation non autorisée est strictement interdite.</p>
+          </div>
 
-      <h2>Intellectual property</h2>
-      <p>
-        The AIPLB brand, logo, software, content, design and data model are
-        the exclusive property of Sakal Org SAS. Any reproduction,
-        representation or distribution, total or partial, on any medium and
-        by any means, is forbidden without prior written authorisation.
-      </p>
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Crédits</h2>
+            <p>Design et développement par IP Licensing Bot SAS.</p>
+          </div>
+        </article>
+      </section>
 
-      <h2>Reporting an issue</h2>
-      <p>
-        To report a security vulnerability, abuse or copyright infringement,
-        write to <a href="mailto:legal@aiplb.app">legal@aiplb.app</a>. We
-        acknowledge within 48h.
-      </p>
-    </LegalShell>
+      <Footer />
+      <ChatbotWidget />
+    </main>
   );
 }
