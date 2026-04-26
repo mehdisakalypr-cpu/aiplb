@@ -1,82 +1,102 @@
 "use client";
 
-export default function GeneratedPage() {
-return (
+export default function CgvPage() {
+  return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      <style jsx global>{`
-        :root {
-          --bg: #06140E;
-          --primary: #10B981;
-          --accent: #FBBF24;
-        }
-        a {
-          color: var(--accent);
-          text-decoration: underline;
-        }
-        a:hover {
-          color: #FCD34D;
-        }
-      `}</style>
-<article className="max-w-4xl mx-auto px-6 py-16">
+      <div className="max-w-4xl mx-auto px-6 py-12 text-white/90">
         <header className="mb-12">
-          <h1 className="text-3xl font-bold text-white mb-4">Conditions Générales de Vente</h1>
-          <p className="text-gray-300">Autonomous IP licensing agent</p>
+          <h1 className="text-4xl font-bold text-white">Conditions Générales de Vente</h1>
+          <p className="mt-4 text-lg text-white/80">
+            Autonomous IP licensing agent – IP Licensing Bot
+          </p>
         </header>
 
-        <section className="space-y-8 text-gray-300">
+        <article className="space-y-10 text-base leading-relaxed">
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Champ d'application</h2>
-            <p>Ces CGV s'appliquent au service IP Licensing Bot proposé par IP Licensing Bot SAS, accessible via <a href="https://aiplb.vercel.app">https://aiplb.vercel.app</a>.</p>
-            <p>Le service permet de détecter l'utilisation de brevets enregistrés sur le web et de proposer des licences commerciales aux utilisateurs concernés.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Champ d’application</h2>
+            <p>
+              Les présentes conditions s’appliquent à l’utilisation du service IP Licensing Bot, agent autonome d’octroi de licences pour les droits de propriété intellectuelle.
+            </p>
+            <p>
+              Le service permet de détecter l’usage de brevets ou autres droits protégés sur le web ouvert, d’adresser des propositions de licence commerciale et de faciliter leur souscription en ligne.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Prix</h2>
-            <p>Le service est proposé à partir de 49€ par mois pour un suivi de base. Des forfaits avancés incluant des fonctionnalités supplémentaires sont disponibles.</p>
-            <p>Les prix sont indiqués lors de la souscription et peuvent être modifiés avec un préavis de 30 jours.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Prix</h2>
+            <p>
+              Les tarifs sont proposés selon les durées suivantes :
+            </p>
+            <ul className="mt-4 space-y-2 list-disc list-inside">
+              <li>Mensuel : 99 € HT par mois</li>
+              <li>12 mois : 84 € HT par mois (–15%)</li>
+              <li>24 mois : 74 € HT par mois (–25%)</li>
+              <li>36 mois : 66 € HT par mois (–33%)</li>
+            </ul>
+            <p className="mt-6">
+              Les prix s’entendent pour un utilisateur unique. Des frais supplémentaires peuvent s’appliquer en cas d’ajout de membres ou de licences multiples.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Paiement</h2>
-            <p>Le paiement s'effectue par carte bancaire via Stripe. Les factures sont envoyées par email et disponibles dans l'espace client.</p>
-            <p>En cas de paiement refusé, l'accès au service est suspendu jusqu'à régularisation.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Paiement</h2>
+            <p>
+              Le paiement s’effectue par carte bancaire via Stripe. Les factures sont émises mensuellement ou annuellement selon la durée choisie.
+            </p>
+            <p>
+              En cas de paiement échoué, le service est suspendu jusqu’à régularisation.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Renouvellement</h2>
-            <p>Les abonnements se renouvellent automatiquement à la date d'échéance sauf résiliation manuelle.</p>
-            <p>Le client peut résilier à tout moment depuis son espace personnel.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Renouvellement</h2>
+            <p>
+              Les abonnements se renouvellent automatiquement à l’échéance pour la même durée, sauf résiliation notifiée au moins 15 jours avant la fin de la période en cours.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Annulation</h2>
-            <p>L'annulation prend effet à la fin de la période de facturation en cours.</p>
-            <p>Aucun remboursement partiel n'est effectué pour les jours non utilisés.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Annulation</h2>
+            <p>
+              L’annulation peut être effectuée en un clic depuis l’espace client. Le service reste accessible jusqu’à la fin de la période payée.
+            </p>
+            <p>
+              Aucun remboursement n’est effectué pour les jours non utilisés en cas d’annulation anticipée.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Garanties</h2>
-            <p>IP Licensing Bot SAS garantit le bon fonctionnement du service selon les spécifications annoncées.</p>
-            <p>Le service est fourni "tel quel" sans garantie de disponibilité à 100%.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Garanties</h2>
+            <p>
+              Le service est fourni « en l’état ». Nous garantissons l’accès au service 99,5 % du temps, hors maintenance programmée.
+            </p>
+            <p>
+              En cas de dysfonctionnement avéré imputable au service, une compensation sous forme de jours gratuits peut être accordée sur demande.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Réclamations</h2>
-            <p>Toute réclamation doit être adressée par email à support@aiplb.vercel.app.</p>
-            <p>Les réclamations sont traitées sous 5 jours ouvrés.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Réclamations</h2>
+            <p>
+              Toute réclamation doit être adressée par email à support@aiplb.vercel.app dans un délai de 30 jours suivant l’incident.
+            </p>
+            <p>
+              Nous nous engageons à répondre sous 5 jours ouvrés.
+            </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-4">Droit applicable</h2>
-            <p>Les présentes CGV sont régies par le lois de l'État du Wyoming, États-Unis.</p>
-            <p>Tout litige sera soumis aux tribunaux compétents de l'État du Wyoming, USA.</p>
+            <h2 className="mb-4 text-xl font-semibold text-white">Droit applicable</h2>
+            <p>
+              Les présentes conditions sont régies par le droit français. Tout litige sera porté devant les tribunaux de Paris.
+            </p>
           </section>
+        </article>
 
-          <footer className="pt-8 border-t border-gray-700">
-            <p className="text-sm text-gray-400">Dernière mise à jour : 2026-04-26</p>
-          </footer>
-        </section>
-      </article>
-</main>
+        <footer className="mt-16 pt-8 border-t border-white/20 text-sm text-white/70">
+          Dernière mise à jour : 2026-04-26
+        </footer>
+      </div>
+    </main>
   );
 }
