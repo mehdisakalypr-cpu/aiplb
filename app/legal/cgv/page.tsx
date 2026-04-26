@@ -68,8 +68,8 @@ return (
 
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">Droit applicable</h2>
-            <p>Les présentes CGV sont régies par le droit français.</p>
-            <p>Tout litige sera soumis aux tribunaux compétents de Paris.</p>
+            <p>Les présentes CGV sont régies par le lois de l'État du Wyoming, États-Unis.</p>
+            <p>Tout litige sera soumis aux tribunaux compétents de l'État du Wyoming, USA.</p>
           </section>
 
           <footer className="pt-8 border-t border-gray-700">
