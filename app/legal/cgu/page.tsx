@@ -84,7 +84,7 @@ return (
 
         <section style={{ marginBottom: '3rem' }}>
           <h2 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>Loi applicable et litiges</h2>
-          <p>Ces CGU sont régies par le droit français. Tout litige relatif à ces CGU sera soumis aux tribunaux compétents de Paris, France, avec renonciation à tout autre for ou tribunal.</p>
+          <p>Ces CGU sont régies par le lois de l'État du Wyoming, États-Unis. Tout litige relatif à ces CGU sera soumis aux tribunaux compétents de l'État du Wyoming, USA, France, avec renonciation à tout autre for ou tribunal.</p>
           <p>En cas de conflit entre ces CGU et toute autre politique ou document, ces CGU prévalent sauf indication contraire expresse.</p>
         </section>
 
