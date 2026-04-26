@@ -1,177 +1,195 @@
-import Link from "next/link";
+"use client";
+
 export default function GeneratedPage() {
 return (
-    <main
-      style={{ minHeight: "100vh", "--bg": "#06140E", background: "var(--bg)" }}
-      className="relative text-white"
-    >
-<header className="py-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div
-          className="max-w-4xl mx-auto p-8 rounded-xl"
-          style={{
-            background:
-              "linear-gradient(90deg, #10B981 0%, #FBBF24 100%)",
-          }}
-        >
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            Services IP Licensing Bot
-          </h1>
-          <p className="text-xl sm:text-2xl text-white font-medium">
-            Votre agent autonome de licence de propriété intellectuelle.
+    <main style={{ minHeight: '100vh', background: 'var(--bg, #06140E)', color: '#E0E0E0' }}>
+      {/* Hero Section */}
+      <header
+        className="py-20 text-center"
+        style={{
+          background: 'linear-gradient(90deg, var(--primary, #10B981) 0%, var(--accent, #FBBF24) 100%)',
+          color: 'var(--bg, #06140E)', // Text color for contrast on gradient
+        }}
+      >
+        <div className="container mx-auto px-4">
+          <h1 className="text-5xl font-bold mb-4">Services IP Licensing Bot</h1>
+          <p className="text-xl max-w-2xl mx-auto">
+            Maximisez la valeur de votre propriété intellectuelle.
           </p>
         </div>
       </header>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12" style={{ color: "#10B981" }}>
-          Nos Services Concrets
+      {/* Services Section */}
+      <section className="py-16 container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12" style={{ color: 'var(--primary, #10B981)' }}>
+          Nos solutions concrètes
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
-            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
-              Surveillance IP Automatisée
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Détecte l&apos;utilisation non autorisée de votre IP brevetée sur le web.
-              Identifie les contrevenants potentiels en temps réel.
-            </p>
-            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
-              Ce que vous obtenez :
-            </h4>
-            <ul className="list-disc pl-5 text-gray-200 space-y-2">
-              <li>Rapports d&apos;usage détaillés.</li>
-              <li>Alertes en temps réel.</li>
-              <li>Preuves d&apos;utilisation horodatées.</li>
-            </ul>
+          {/* Service Card 1 */}
+          <article className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl font-semibold mb-3" style={{ color: 'var(--accent, #FBBF24)' }}>
+                Surveillance IP
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Détection proactive de l'utilisation non autorisée de votre propriété intellectuelle.
+                Analyse continue des plateformes et contenus en ligne.
+              </p>
+              <h4 className="text-lg font-medium mb-2" style={{ color: 'var(--primary, #10B981)' }}>
+                Ce que vous obtenez :
+              </h4>
+              <ul className="list-disc pl-5 text-gray-300 space-y-1">
+                <li>Rapports d'utilisation détaillés.</li>
+                <li>Alertes en temps réel sur les infractions.</li>
+                <li>Preuves horodatées pour chaque cas.</li>
+              </ul>
+            </div>
           </article>
 
-          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
-            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
-              Rédaction de Mises en Demeure
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Génère des lettres de cessation et d&apos;abstention personnalisées.
-              Conformes aux exigences légales, prêtes à l&apos;envoi.
-            </p>
-            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
-              Ce que vous obtenez :
-            </h4>
-            <ul className="list-disc pl-5 text-gray-200 space-y-2">
-              <li>Lettres prêtes à l&apos;envoi.</li>
-              <li>Arguments juridiques clairs.</li>
-              <li>Suivi des envois.</li>
-            </ul>
+          {/* Service Card 2 */}
+          <article className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl font-semibold mb-3" style={{ color: 'var(--accent, #FBBF24)' }}>
+                Mises en Demeure
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Génération automatique de lettres de mise en demeure juridiquement solides.
+                Personnalisation selon chaque infraction détectée.
+              </p>
+              <h4 className="text-lg font-medium mb-2" style={{ color: 'var(--primary, #10B981)' }}>
+                Ce que vous obtenez :
+              </h4>
+              <ul className="list-disc pl-5 text-gray-300 space-y-1">
+                <li>Lettres conformes aux exigences légales.</li>
+                <li>Envois automatisés et traçables.</li>
+                <li>Suivi des réponses et actions.</li>
+              </ul>
+            </div>
           </article>
 
-          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
-            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
-              Négociation de Licences
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Propose des licences commerciales cliquables aux contrevenants.
-              Facilite un accord rapide et équitable sans friction.
-            </p>
-            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
-              Ce que vous obtenez :
-            </h4>
-            <ul className="list-disc pl-5 text-gray-200 space-y-2">
-              <li>Contrats de licence standardisés.</li>
-              <li>Options de paiement flexibles.</li>
-              <li>Historique des accords.</li>
-            </ul>
+          {/* Service Card 3 */}
+          <article className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl font-semibold mb-3" style={{ color: 'var(--accent, #FBBF24)' }}>
+                Licences Commerciales
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Proposition de licences "click-through" simplifiées aux contrevenants.
+                Monétisation rapide des utilisations non autorisées.
+              </p>
+              <h4 className="text-lg font-medium mb-2" style={{ color: 'var(--primary, #10B981)' }}>
+                Ce que vous obtenez :
+              </h4>
+              <ul className="list-disc pl-5 text-gray-300 space-y-1">
+                <li>Contrats de licence clairs et concis.</li>
+                <li>Paiements sécurisés et intégrés.</li>
+                <li>Historique complet des licences émises.</li>
+              </ul>
+            </div>
           </article>
 
-          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
-            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
-              Gestion des Litiges
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Centralise communications et documents pour actions légales.
-              Prépare efficacement votre dossier en cas de contentieux.
-            </p>
-            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
-              Ce que vous obtenez :
-            </h4>
-            <ul className="list-disc pl-5 text-gray-200 space-y-2">
-              <li>Dossiers de preuves organisés.</li>
-              <li>Historique des échanges.</li>
-              <li>Préparation aux contentieux.</li>
-            </ul>
+          {/* Service Card 4 */}
+          <article className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between">
+            <div>
+              <h3 className="text-2xl font-semibold mb-3" style={{ color: 'var(--accent, #FBBF24)' }}>
+                Gestion des Litiges
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Centralisation des communications et documents liés aux infractions.
+                Préparation des dossiers pour actions légales si nécessaire.
+              </p>
+              <h4 className="text-lg font-medium mb-2" style={{ color: 'var(--primary, #10B981)' }}>
+                Ce que vous obtenez :
+              </h4>
+              <ul className="list-disc pl-5 text-gray-300 space-y-1">
+                <li>Dossiers structurés et organisés.</li>
+                <li>Aide à la négociation des accords.</li>
+                <li>Rapports d'escalade pour avocats.</li>
+              </ul>
+            </div>
           </article>
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-12" style={{ color: "#10B981" }}>
-          Notre Technologie Sous le Capot
-        </h2>
-        <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 p-8 rounded-xl" style={{ background: "#0D251D" }}>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">OpenAI</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">LangChain</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">Next.js</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">React</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">PostgreSQL</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">Vercel</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">Tailwind CSS</span>
-          <span className="text-xl sm:text-2xl font-medium text-gray-300">TypeScript</span>
+      {/* Tech Stack Strip */}
+      <section className="bg-gray-900 py-12">
+        <h2 className="sr-only">Pile technique</h2>
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-lg text-gray-400 mb-6">
+            Propulsé par une technologie de pointe :
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-xl font-medium" style={{ color: 'var(--primary, #10B981)' }}>
+            <span>Next.js</span>
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>OpenAI</span>
+            <span>LangChain</span>
+            <span>PostgreSQL</span>
+            <span>Vercel</span>
+            <span>Stripe</span>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-10" style={{ color: "#10B981" }}>
-          Questions Fréquentes
+      {/* FAQ Teaser */}
+      <section className="py-16 container mx-auto px-4 text-center">
+        <h2 className="text-4xl font-bold mb-8" style={{ color: 'var(--primary, #10B981)' }}>
+          Questions fréquentes
         </h2>
-        <ul className="space-y-6">
-          <li>
-            <Link
-              href="/faq#detection"
-              className="text-xl font-medium hover:underline"
-              style={{ color: "#FBBF24" }}
-            >
-              Comment fonctionne la détection ?
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/faq#legalite"
-              className="text-xl font-medium hover:underline"
-              style={{ color: "#FBBF24" }}
-            >
-              Est-ce légalement contraignant ?
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/faq#couts"
-              className="text-xl font-medium hover:underline"
-              style={{ color: "#FBBF24" }}
-            >
-              Quels sont les coûts ?
-            </Link>
-          </li>
-        </ul>
+        <div className="space-y-4 max-w-2xl mx-auto">
+          <a
+            href="/faq#detection"
+            className="block bg-gray-800 p-4 rounded-lg text-lg hover:bg-gray-700 transition-colors"
+            style={{ color: 'var(--accent, #FBBF24)' }}
+          >
+            Comment fonctionne la détection d'IP ?
+          </a>
+          <a
+            href="/faq#types-ip"
+            className="block bg-gray-800 p-4 rounded-lg text-lg hover:bg-gray-700 transition-colors"
+            style={{ color: 'var(--accent, #FBBF24)' }}
+          >
+            Quels types d'IP sont couverts ?
+          </a>
+          <a
+            href="/faq#avocat"
+            className="block bg-gray-800 p-4 rounded-lg text-lg hover:bg-gray-700 transition-colors"
+            style={{ color: 'var(--accent, #FBBF24)' }}
+          >
+            Est-ce que le bot remplace un avocat ?
+          </a>
+        </div>
+        <p className="mt-8 text-lg">
+          <a href="/faq" className="font-semibold" style={{ color: 'var(--primary, #10B981)' }}>
+            Voir toutes les questions
+          </a>
+        </p>
       </section>
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div
-          className="max-w-3xl mx-auto p-10 rounded-xl flex flex-col items-center justify-center"
-          style={{
-            background:
-              "linear-gradient(90deg, #10B981 0%, #FBBF24 100%)",
-          }}
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
-            Prêt à Protéger Votre IP ?
+      {/* CTA Band */}
+      <section
+        className="py-16 text-center"
+        style={{
+          background: 'linear-gradient(90deg, var(--primary, #10B981) 0%, var(--accent, #FBBF24) 100%)',
+          color: 'var(--bg, #06140E)',
+        }}
+      >
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-6">
+            Prêt à protéger votre IP ?
           </h2>
-          <Link
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Découvrez comment IP Licensing Bot peut transformer votre gestion des droits.
+          </p>
+          <a
             href="/demo"
-            className="inline-block px-10 py-4 text-xl font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105"
-            style={{ background: "#06140E", color: "#FBBF24" }}
+            className="inline-block bg-gray-800 text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-700 transition-colors"
+            style={{ backgroundColor: 'var(--bg, #06140E)', color: 'var(--accent, #FBBF24)' }}
           >
             Demander une Démonstration
-          </Link>
+          </a>
         </div>
       </section>
-</main>
+    </main>
   );
 }
