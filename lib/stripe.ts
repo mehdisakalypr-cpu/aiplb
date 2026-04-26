@@ -1,4 +1,5 @@
 import Stripe from "stripe";
+import { TIER_LIMITS } from "./tier-limits";
 
 let _stripe: Stripe | null = null;
 
@@ -10,29 +11,38 @@ export function stripe(): Stripe {
   return _stripe;
 }
 
-export type PlanKey = "starter" | "pro" | "enterprise";
+export type PlanKey = "free" | "starter" | "pro" | "scale";
 
+// PLANS is now a thin adapter over TIER_LIMITS so there is exactly ONE source
+// of truth for tier sizing. Keeping the same shape as before to avoid
+// breaking any caller still reading `PLANS[plan].max_competitors`.
 export const PLANS: Record<
   PlanKey,
-  { name: string; price_eur: number; max_competitors: number; envVar: string }
+  { name: string; price_eur: number; max_competitors: number; envVar: string | null }
 > = {
+  free: {
+    name: TIER_LIMITS.free.label,
+    price_eur: TIER_LIMITS.free.price_eur,
+    max_competitors: TIER_LIMITS.free.items_max,
+    envVar: null,
+  },
   starter: {
-    name: "Starter",
-    price_eur: 49,
-    max_competitors: 5,
+    name: TIER_LIMITS.starter.label,
+    price_eur: TIER_LIMITS.starter.price_eur,
+    max_competitors: TIER_LIMITS.starter.items_max,
     envVar: "STRIPE_PRICE_STARTER",
   },
   pro: {
-    name: "Pro",
-    price_eur: 99,
-    max_competitors: 10,
+    name: TIER_LIMITS.pro.label,
+    price_eur: TIER_LIMITS.pro.price_eur,
+    max_competitors: TIER_LIMITS.pro.items_max,
     envVar: "STRIPE_PRICE_PRO",
   },
-  enterprise: {
-    name: "Enterprise",
-    price_eur: 299,
-    max_competitors: 50,
-    envVar: "STRIPE_PRICE_ENTERPRISE",
+  scale: {
+    name: TIER_LIMITS.scale.label,
+    price_eur: TIER_LIMITS.scale.price_eur,
+    max_competitors: TIER_LIMITS.scale.items_max,
+    envVar: "STRIPE_PRICE_SCALE",
   },
 };
 

@@ -6,9 +6,9 @@ import ChatbotWidget from "@/components/ChatbotWidget";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AIPLB — Track 10 competitors auto, weekly digest",
+  title: "IP Licensing Bot — Surveillance concurrentielle à la demande",
   description:
-    "AIPLB snapshots your competitors daily, diffs every change, and emails you a weekly digest. Slack + email. €99/mo.",
+    "IP Licensing Bot capture vos concurrents à la demande, détecte les changements clés et génère un rapport instantané. Email + Slack.",
 };
 
 export default function RootLayout({

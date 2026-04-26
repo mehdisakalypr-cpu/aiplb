@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/auth";
 import { supabaseService } from "@/lib/supabase-server";
-import { PLANS, type PlanKey } from "@/lib/stripe";
+import { getTierLimits, nextTier } from "@/lib/tier-limits";
 
 export const runtime = "nodejs";
 
@@ -24,42 +24,33 @@ export async function POST(req: Request) {
   if (!name || !url) {
     return NextResponse.json({ error: "name + url required" }, { status: 400 });
   }
-  try {
-    new URL(url);
-  } catch {
-    return NextResponse.json({ error: "invalid url" }, { status: 400 });
-  }
+  try { new URL(url); } catch { return NextResponse.json({ error: "invalid url" }, { status: 400 }); }
 
   const sb = supabaseService();
+  const { data: client } = await sb.from("clients").select("plan").eq("id", user.id).single();
+  const plan = client?.plan ?? "free";
+  const limits = getTierLimits(plan);
+  const max = limits.items_max;
 
-  // Enforce plan limits
-  const { data: client } = await sb
-    .from("clients")
-    .select("plan")
-    .eq("id", user.id)
-    .single();
-  const plan = (client?.plan as PlanKey) || "starter";
-  const max = PLANS[plan]?.max_competitors ?? 5;
-
-  const { count } = await sb
-    .from("competitors")
+  const { count } = await sb.from("competitors")
     .select("id", { count: "exact", head: true })
     .eq("client_id", user.id);
+
   if ((count ?? 0) >= max) {
+    const up = nextTier(plan);
+    const upgradeMsg = max === 0
+      ? "Choisissez une offre pour commencer."
+      : up
+      ? `Limite ${plan} atteinte (${max}). Passez en ${up} pour suivre plus de concurrents.`
+      : `Limite atteinte (${max}). Vous êtes déjà sur le plan le plus élevé.`;
     return NextResponse.json(
-      { error: `Plan limit reached (${max}). Upgrade to add more.` },
-      { status: 402 }
+      { error: upgradeMsg, current: count, max, upgrade_to: up },
+      { status: 402 },
     );
   }
 
-  const { data, error } = await sb
-    .from("competitors")
-    .insert({
-      client_id: user.id,
-      name,
-      url,
-      enabled: true,
-    })
+  const { data, error } = await sb.from("competitors")
+    .insert({ client_id: user.id, name, url, enabled: true })
     .select("id,name,url,enabled,last_snapshot_at")
     .single();
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
