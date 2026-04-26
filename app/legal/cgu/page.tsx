@@ -1,80 +1,85 @@
 "use client";
 
-export default function CguPage() {
-  return (
-    <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
-      
-      <article className="max-w-3xl mx-auto px-4 py-12 text-gray-100 leading-relaxed">
-        <header className="mb-12">
-          <h1 className="text-3xl font-bold text-primary mb-4">Conditions Générales de Vente</h1>
-          <p className="text-gray-300">Service IP Licensing Bot – Autonomous IP licensing agent</p>
+import Link from "next/link";
+export default function GeneratedPage() {
+return (
+    <main style={{ minHeight: '100vh', background: '#06140E' }}>
+      <div style={{ background: 'linear-gradient(135deg, #10B981 0%, #FBBF24 100%)', padding: '4rem 1rem' }}>
+        <header style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#0F172A', marginBottom: '1rem' }}>Conditions Générales d'Utilisation</h1>
+          <p style={{ fontSize: '1.25rem', color: '#0F172A' }}>Autonomous IP licensing agent</p>
         </header>
+      </div>
 
-        <section className="space-y-8">
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Objet</h2>
-            <p>Ces conditions régissent l’accès et l’usage du service IP Licensing Bot, un agent autonome qui détecte l’utilisation de brevets sur le web et propose des licences commerciales.</p>
-            <p>Le service est fourni par la société IP Licensing SAS, enregistrée au RCS de Paris sous le numéro 987654321.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Acceptation des conditions</h2>
-            <p>L’utilisation du service vaut acceptation pleine et entière des présentes conditions.</p>
-            <p>L’accès est réservé aux personnes majeures et capables juridiquement.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Compte utilisateur</h2>
-            <p>La création d’un compte est obligatoire pour utiliser le service.</p>
-            <p>Chaque utilisateur est responsable de la confidentialité de ses identifiants.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Tarifs et abonnements</h2>
-            <p>Les tarifs sont affichés sur le site et facturés mensuellement ou par engagement pluriannuel.</p>
-            <p>Les durées proposées sont : Mensuel, 12 mois (-15%), 24 mois (-25%), 36 mois (-33%).</p>
-            <p>Le paiement s’effectue par carte bancaire ou virement. Les factures sont disponibles en ligne.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Obligations de l’utilisateur</h2>
-            <p>L’utilisateur garantit détenir les droits sur les brevets déclarés.</p>
-            <p>Il s’engage à ne pas utiliser le service pour des activités illégales ou contraires à l’ordre public.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Propriété intellectuelle</h2>
-            <p>Les brevets et contenus soumis par l’utilisateur restent sa propriété.</p>
-            <p>IP Licensing SAS conserve la propriété des algorithmes, interfaces et données agrégées.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Données personnelles</h2>
-            <p>Les données personnelles sont traitées conformément à la politique de confidentialité.</p>
-            <p>Seuls les collaborateurs autorisés accèdent aux données strictement nécessaires au service.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Responsabilité</h2>
-            <p>IP Licensing SAS ne garantit pas l’exhaustivité des détections ni l’absence d’erreurs.</p>
-            <p>L’utilisateur reste seul responsable des actions engagées suite à une alerte.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Résiliation</h2>
-            <p>L’abonnement peut être résilié à tout moment depuis l’espace client.</p>
-            <p>Les remboursements sont effectués selon les conditions commerciales en vigueur.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold text-primary mb-3">Loi applicable</h2>
-            <p>Les présentes conditions sont régies par le droit français.</p>
-            <p>Tout litige sera soumis aux tribunaux compétents de Paris.</p>
-          </section>
+      <article style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem', color: '#F8FAFC' }}>
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Objet</h2>
+          <p>Ces CGU régissent l'accès et l'utilisation du service IP Licensing Bot, un agent autonome qui surveille l'usage de brevets sur le web et propose des licences commerciales.</p>
+          <p>Le service est fourni par GAPUP SAS, immatriculée au RCS de Paris sous le numéro 987654321.</p>
         </section>
 
-        <footer className="mt-16 pt-8 border-t border-gray-700 text-sm text-gray-400">
-          Dernière mise à jour : 2026-04-26
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Acceptation</h2>
+          <p>L'utilisation du service vaut acceptation des présentes conditions. L'accès au service est réservé aux personnes majeures et capables juridiquement.</p>
+          <p>Toute utilisation frauduleuse ou contraire aux lois en vigueur entraîne la résiliation immédiate du compte.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Compte utilisateur</h2>
+          <p>La création d'un compte est obligatoire pour utiliser le service. L'utilisateur s'engage à fournir des informations exactes et à maintenir leur actualité.</p>
+          <p>Le mot de passe doit être sécurisé et ne pas être partagé. L'équipe IP Licensing Bot ne peut être tenue responsable des usages frauduleux du compte.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Tarifs</h2>
+          <p>Les abonnements sont facturés mensuellement ou annuellement avec des réductions progressives selon la durée d'engagement : 12 mois (-15%), 24 mois (-25%), 36 mois (-33%).</p>
+          <p>Les tarifs sont indiqués en euros, toutes taxes comprises. Le paiement s'effectue par carte bancaire ou virement. Aucun remboursement n'est accordé en cas de résiliation anticipée.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Obligations de l'utilisateur</h2>
+          <p>L'utilisateur garantit détenir les droits nécessaires sur les brevets surveillés et s'engage à ne pas utiliser le service à des fins illégales ou contraires aux droits d'autrui.</p>
+          <p>Il doit répondre aux notifications envoyées par le service et respecter les procédures de licence proposées.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Propriété intellectuelle</h2>
+          <p>Le service et son contenu (marques, logiciels, bases de données) sont la propriété exclusive de GAPUP SAS. Toute reproduction ou diffusion non autorisée est interdite.</p>
+          <p>Les licences commerciales proposées par le service sont régies par les termes définis par l'utilisateur et le titulaire du brevet.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Données personnelles</h2>
+          <p>Les données collectées (coordonnées, historique d'usage) sont traitées conformément au RGPD. Elles servent uniquement à la fourniture du service et à la gestion des abonnements.</p>
+          <p>L'utilisateur dispose d'un droit d'accès, de rectification et d'effacement de ses données. Pour les exercer, contactez support@aiplb.gapup.io.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Responsabilité</h2>
+          <p>GAPUP SAS ne garantit pas l'exhaustivité des résultats ni l'absence d'erreurs dans les analyses. Le service est fourni "en l'état", sans garantie de disponibilité ou de performance.</p>
+          <p>L'utilisateur reste seul responsable des usages de ses brevets et des conséquences juridiques qui en découlent.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Résiliation</h2>
+          <p>L'abonnement peut être résilié à tout moment via l'espace client. La résiliation prend effet à la fin de la période de facturation en cours.</p>
+          <p>Les données utilisateur sont conservées 30 jours après résiliation, puis supprimées conformément à la politique de confidentialité.</p>
+        </section>
+
+        <section style={{ marginBottom: '2.5rem' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10B981', marginBottom: '1rem' }}>Loi applicable</h2>
+          <p>Les présentes conditions sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de Paris.</p>
+        </section>
+
+        <footer style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid #334155', color: '#94A3B8' }}>
+          <p>Dernière mise à jour : 2026-04-26</p>
+          <Link
+            href="/privacy"
+            style={{ color: '#10B981', textDecoration: 'underline' }}
+            aria-label="Consulter la politique de confidentialité"
+          >
+            Politique de confidentialité
+          </Link>
         </footer>
       </article>
     </main>
