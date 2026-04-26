@@ -1,45 +1,44 @@
-export default function GeneratedPage() {
-return (
-    <main style={{ minHeight: '100vh', background: 'var(--bg)', '--bg': '#06140E' }}>
-<header className="py-16 px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white">Politique de confidentialité</h1>
-        <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">Comment nous protégeons vos données personnelles dans le cadre de l&apos;utilisation de l&apos;IP Licensing Bot</p>
-      </header>
+"use client";
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <article className="prose prose-invert prose-lg text-gray-300 space-y-8">
-          <h2 className="text-2xl font-bold text-white">1. Données collectées</h2>
-          <p>Nous collectons uniquement les données strictement nécessaires à la fourniture du service : adresse e-mail pour la création de compte, adresse IP pour la détection d&apos;utilisation de votre propriété intellectuelle, et informations sur les licences commerciales souscrites.</p>
+export default function PrivacyPage() {
+  return (
+    <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+      
+      <article className="max-w-3xl mx-auto px-6 py-16 text-gray-100">
+        <header className="mb-12">
+          <h1 className="text-4xl font-bold text-primary mb-4">Politique de confidentialité</h1>
+          <p className="text-lg text-gray-300">Dernière mise à jour : 26 avril 2026</p>
+        </header>
 
-          <h2 className="text-2xl font-bold text-white">2. Finalité du traitement</h2>
-          <p>Vos données servent exclusivement à : identifier les utilisateurs de votre propriété intellectuelle, générer des lettres de mise en demeure automatisées, proposer des licences commerciales via un processus de click-through, et assurer le support technique.</p>
+        <section className="space-y-8">
+          <h2 className="text-2xl font-semibold text-white">1. Données collectées</h2>
+          <p>Nous collectons uniquement les données strictement nécessaires au fonctionnement du service : adresse e-mail pour créer un compte, nom de l’entreprise ou du titulaire du brevet, et adresse IP pour sécuriser les connexions.</p>
 
-          <h2 className="text-2xl font-bold text-white">3. Base légale</h2>
-          <p>Le traitement repose sur votre consentement explicite pour la création de compte et l&apos;envoi de communications commerciales. Pour la détection d&apos;utilisation de propriété intellectuelle, le traitement est nécessaire à l&apos;exécution de notre mission de défense de vos droits.</p>
+          <h2 className="text-2xl font-semibold text-white">2. Finalité</h2>
+          <p>Ces données servent à identifier l’utilisateur, lui permettre d’accéder à l’interface de surveillance, et générer des documents juridiques automatisés en cas d’infraction détectée.</p>
 
-          <h2 className="text-2xl font-bold text-white">4. Durée de conservation</h2>
-          <p>Les données personnelles sont conservées 3 ans après la dernière activité de votre compte ou la résiliation de votre abonnement. Les données relatives aux licences commerciales sont conservées 10 ans pour répondre à d&apos;éventuels litiges.</p>
+          <h2 className="text-2xl font-semibold text-white">3. Base légale</h2>
+          <p>Le traitement repose sur l’exécution d’un contrat (CGU) et le respect d’une obligation légale (protection des droits de propriété intellectuelle).</p>
 
-          <h2 className="text-2xl font-bold text-white">5. Destinataires des données</h2>
-          <p>Vos données sont accessibles uniquement à notre équipe technique pour le support, à nos partenaires juridiques pour la rédaction de documents officiels, et aux services d&apos;hébergement pour assurer le fonctionnement du service. Aucune vente ou partage à des tiers n&apos;est effectué.</p>
+          <h2 className="text-2xl font-semibold text-white">4. Conservation</h2>
+          <p>Les données sont conservées le temps de la relation contractuelle, puis archivées 3 ans après résiliation pour répondre à d’éventuelles réclamations ou obligations légales.</p>
 
-          <h2 className="text-2xl font-bold text-white">6. Vos droits</h2>
-          <p>Vous disposez du droit d&apos;accès, de rectification, d&apos;effacement, de limitation du traitement, et de portabilité de vos données. Pour exercer ces droits, contactez-nous à l&apos;adresse indiquée en section 8. Vous pouvez également vous opposer au traitement de vos données pour des motifs légitimes.</p>
+          <h2 className="text-2xl font-semibold text-white">5. Destinataires</h2>
+          <p>Les données ne sont partagées qu’avec des sous-traitants strictement nécessaires (hébergeur, prestataire de sauvegarde) sous accord de confidentialité. Aucune transmission à des tiers non autorisés.</p>
 
-          <h2 className="text-2xl font-bold text-white">7. Cookies</h2>
-          <p>Notre service utilise des cookies techniques essentiels au fonctionnement du site (session, sécurité) et des cookies de performance pour analyser l&apos;utilisation du service. Aucun cookie de suivi publicitaire n&apos;est installé. Vous pouvez bloquer les cookies via les paramètres de votre navigateur, mais cela peut impacter certaines fonctionnalités.</p>
+          <h2 className="text-2xl font-semibold text-white">6. Droits des personnes</h2>
+          <p>Vous pouvez accéder, rectifier, effacer vos données ou limiter leur traitement en contactant le DPO. Pour exercer ces droits, envoyez un mail à dpo@aiplb.vercel.app avec une pièce d’identité.</p>
 
-          <h2 className="text-2xl font-bold text-white">8. Délégué à la protection des données</h2>
-          <p>Notre Délégué à la Protection des Données est joignable à l&apos;adresse <a href="mailto:dpo@aiplb.vercel.app" className="text-primary underline">dpo@aiplb.vercel.app</a>. Pour toute question relative à la protection de vos données, vous pouvez également contacter notre équipe via le chat intégré au service.</p>
+          <h2 className="text-2xl font-semibold text-white">7. Cookies</h2>
+          <p>Nous utilisons des cookies techniques pour l’authentification et des cookies de session pour garantir la sécurité. Aucun cookie de suivi ou publicitaire n’est déployé.</p>
 
-          <h2 className="text-2xl font-bold text-white">9. Réclamation à la FTC (US) ou autorité de protection des données du pays de résidence pour les utilisateurs EU</h2>
-          <p>Si vous estimez que le traitement de vos données ne respecte pas le RGPD, vous pouvez introduire une réclamation auprès de la FTC (US) ou autorité de protection des données du pays de résidence pour les utilisateurs EU en ligne à l&apos;adresse <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.cnil.fr/fr/plaintes</a> ou par courrier à l&apos;adresse suivante : FTC (US) ou autorité de protection des données du pays de résidence pour les utilisateurs EU - 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07.</p>
+          <h2 className="text-2xl font-semibold text-white">8. Délégué à la protection des données</h2>
+          <p>Notre DPO est joignable à l’adresse dpo@aiplb.vercel.app. Il traite les demandes relatives à la protection des données personnelles.</p>
 
-          <div className="pt-8 text-sm text-gray-400">
-            <p>Dernière mise à jour : 26 avril 2026</p>
-          </div>
-        </article>
-      </section>
-</main>
+          <h2 className="text-2xl font-semibold text-white">9. Réclamation auprès de la CNIL</h2>
+          <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une réclamation auprès de la CNIL via <a href="https://www.cnil.fr" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">www.cnil.fr</a>.</p>
+        </section>
+      </article>
+    </main>
   );
 }
