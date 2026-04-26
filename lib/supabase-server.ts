@@ -17,7 +17,7 @@ export function supabaseService(): SupabaseClient {
   }
   _service = createClient(url, key, {
     auth: { persistSession: false, autoRefreshToken: false },
-    db: { schema: "aici" as any },
+    db: { schema: "aiplb" as any },
   });
   return _service;
 }
