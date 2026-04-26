@@ -1,17 +1,11 @@
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main
       style={{ minHeight: "100vh", "--bg": "#06140E", background: "var(--bg)" }}
       className="relative text-white"
     >
-      <Nav />
-
-      <header className="py-20 px-4 sm:px-6 lg:px-8 text-center">
+<header className="py-20 px-4 sm:px-6 lg:px-8 text-center">
         <div
           className="max-w-4xl mx-auto p-8 rounded-xl"
           style={{
@@ -178,9 +172,6 @@ return (
           </Link>
         </div>
       </section>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
