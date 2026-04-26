@@ -32,8 +32,8 @@ return (
           <h2 className="text-2xl font-bold text-white">8. Délégué à la protection des données</h2>
           <p>Notre Délégué à la Protection des Données est joignable à l&apos;adresse <a href="mailto:dpo@aiplb.vercel.app" className="text-primary underline">dpo@aiplb.vercel.app</a>. Pour toute question relative à la protection de vos données, vous pouvez également contacter notre équipe via le chat intégré au service.</p>
 
-          <h2 className="text-2xl font-bold text-white">9. Réclamation à la CNIL</h2>
-          <p>Si vous estimez que le traitement de vos données ne respecte pas le RGPD, vous pouvez introduire une réclamation auprès de la CNIL en ligne à l&apos;adresse <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.cnil.fr/fr/plaintes</a> ou par courrier à l&apos;adresse suivante : CNIL - 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07.</p>
+          <h2 className="text-2xl font-bold text-white">9. Réclamation à la FTC (US) ou autorité de protection des données du pays de résidence pour les utilisateurs EU</h2>
+          <p>Si vous estimez que le traitement de vos données ne respecte pas le RGPD, vous pouvez introduire une réclamation auprès de la FTC (US) ou autorité de protection des données du pays de résidence pour les utilisateurs EU en ligne à l&apos;adresse <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer" className="text-primary underline">www.cnil.fr/fr/plaintes</a> ou par courrier à l&apos;adresse suivante : FTC (US) ou autorité de protection des données du pays de résidence pour les utilisateurs EU - 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07.</p>
 
           <div className="pt-8 text-sm text-gray-400">
             <p>Dernière mise à jour : 26 avril 2026</p>
