@@ -11,7 +11,7 @@ Pricing:
 - Pro €99/mo (most popular): 10 competitors, daily snapshots, Slack + email alerts, AI digest (Claude), 30-day history
 - Enterprise €299/mo: 50 competitors, twice-daily snapshots, Slack + email + webhook, custom schedule, 365-day history, priority support
 - Annual billing = 2 months free
-- 7-day money-back guarantee, cancel anytime from the customer portal
+- No money-back guarantee, no free trial. Subscriptions are committed-term: cancel anytime stops auto-renewal but the current term remains paid. Discounts only via 12/24/36-month commitment.
 
 Services (5):
 1. Track 4 surfaces per competitor: pricing, blog, careers, homepage

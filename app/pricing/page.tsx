@@ -67,9 +67,7 @@ export default function PricingPage() {
     <main>
       <section className="mx-auto max-w-6xl px-6 py-20">
         <h1 className="text-4xl font-semibold tracking-tight text-center">Pricing</h1>
-        <p className="mt-3 text-center text-[var(--muted)]">
-          Cancel anytime. 7-day money back.
-        </p>
+        <p className="mt-3 text-center text-[var(--muted)]">        </p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {tiers.map((t) => (
