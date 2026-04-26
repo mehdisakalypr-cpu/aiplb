@@ -69,6 +69,14 @@ export async function POST(req: NextRequest) {
   const sessionId = String(body.sessionId || "").trim();
   const message = String(body.message || "").trim();
   const history: Msg[] = Array.isArray(body.history) ? body.history.slice(-10) : [];
+  const lang = String(body.lang || "en").toLowerCase().slice(0, 5);
+  const LOCALE_NAMES: Record<string, string> = {
+    en: "English", fr: "French", es: "Spanish", de: "German", it: "Italian",
+    pt: "Portuguese", nl: "Dutch", pl: "Polish", ja: "Japanese", zh: "Chinese",
+    ar: "Arabic", ru: "Russian",
+  };
+  const localeName = LOCALE_NAMES[lang.slice(0, 2)] || "English";
+  const localeDirective = `\n\nIMPORTANT: Always answer in ${localeName}. The user\u0027s interface is in ${localeName}.`;
 
   if (!sessionId || !message) {
     return NextResponse.json(
