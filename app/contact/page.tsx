@@ -2,108 +2,138 @@
 
 export default function GeneratedPage() {
 return (
-    <main style={{ minHeight: '100vh', background: 'var(--bg)', '--bg': '#06140E' }}>
-      <header className="py-16 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact</h1>
-        <h2 className="text-xl md:text-2xl text-gray-300">Réponse en moins de 24h</h2>
+    <main style={{ minHeight: '100vh', background: '#06140E' }}>
+      <header style={{ padding: '4rem 1rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <h1 style={{ color: '#FFFFFF', fontSize: '2.5rem', fontWeight: 700, margin: 0 }}>Contact</h1>
+        <h2 style={{ color: '#FBBF24', fontSize: '1.5rem', fontWeight: 400, margin: '0.5rem 0 0' }}>Réponse en moins de 24h</h2>
       </header>
 
-      <section className="px-4 max-w-7xl mx-auto py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'flex-start' }}>
           {/* Form Column */}
-          <div className="lg:col-span-2">
-            <form
-              action="/api/contact"
-              method="POST"
-              className="space-y-6 bg-gray-800/50 p-8 rounded-xl border border-gray-700"
-            >
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                  Nom complet
-                </label>
+          <article style={{ background: '#111827', padding: '2rem', borderRadius: '0.5rem' }}>
+            <form action="/api/contact" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="name" style={{ color: '#F8FAFC', fontSize: '0.875rem', fontWeight: 500 }}>Nom complet</label>
                 <input
-                  type="text"
                   id="name"
                   name="name"
+                  type="text"
                   required
-                  className="w-full px-4 py-3 rounded-md bg-gray-900 border border-gray-600 text-white focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  aria-label="Votre nom complet"
+                  style={{
+                    padding: '0.75rem',
+                    borderRadius: '0.375rem',
+                    border: '1px solid #4B5563',
+                    background: '#F8FAFC',
+                    color: '#0F172A',
+                    fontSize: '1rem'
+                  }}
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Adresse email
-                </label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="email" style={{ color: '#F8FAFC', fontSize: '0.875rem', fontWeight: 500 }}>Email</label>
                 <input
-                  type="email"
                   id="email"
                   name="email"
+                  type="email"
                   required
-                  className="w-full px-4 py-3 rounded-md bg-gray-900 border border-gray-600 text-white focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  aria-label="Votre adresse email"
+                  style={{
+                    padding: '0.75rem',
+                    borderRadius: '0.375rem',
+                    border: '1px solid #4B5563',
+                    background: '#F8FAFC',
+                    color: '#0F172A',
+                    fontSize: '1rem'
+                  }}
                 />
               </div>
 
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
-                  Société
-                </label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="company" style={{ color: '#F8FAFC', fontSize: '0.875rem', fontWeight: 500 }}>Entreprise</label>
                 <input
-                  type="text"
                   id="company"
                   name="company"
+                  type="text"
                   required
-                  className="w-full px-4 py-3 rounded-md bg-gray-900 border border-gray-600 text-white focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  aria-label="Nom de votre société"
+                  style={{
+                    padding: '0.75rem',
+                    borderRadius: '0.375rem',
+                    border: '1px solid #4B5563',
+                    background: '#F8FAFC',
+                    color: '#0F172A',
+                    fontSize: '1rem'
+                  }}
                 />
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                  Message
-                </label>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label htmlFor="message" style={{ color: '#F8FAFC', fontSize: '0.875rem', fontWeight: 500 }}>Message</label>
                 <textarea
                   id="message"
                   name="message"
                   rows={5}
                   required
-                  className="w-full px-4 py-3 rounded-md bg-gray-900 border border-gray-600 text-white focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  aria-label="Votre message"
+                  style={{
+                    padding: '0.75rem',
+                    borderRadius: '0.375rem',
+                    border: '1px solid #4B5563',
+                    background: '#F8FAFC',
+                    color: '#0F172A',
+                    fontSize: '1rem',
+                    resize: 'vertical'
+                  }}
                 />
               </div>
 
               <button
                 type="submit"
-                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-md transition-colors"
+                style={{
+                  background: '#10B981',
+                  color: '#FFFFFF',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '0.375rem',
+                  border: 'none',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  alignSelf: 'flex-start'
+                }}
               >
                 Envoyer
               </button>
             </form>
-          </div>
+          </article>
 
-          {/* Info Column */}
-          <div className="space-y-6">
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-              <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
-              <p className="text-gray-300 mb-2">contact@aiplb.com</p>
-              <p className="text-sm text-gray-400">Réponse sous 24h</p>
+          {/* Info Card Column */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ background: '#111827', padding: '2rem', borderRadius: '0.5rem' }}>
+              <h3 style={{ color: '#FFFFFF', fontSize: '1.25rem', fontWeight: 600, margin: 0 }}>Contact</h3>
+              <p style={{ color: '#FBBF24', fontSize: '1rem', margin: '0.5rem 0 0' }}>Vous parlez à un humain, pas un bot.</p>
+
+              <div style={{ marginTop: '1.5rem' }}>
+                <p style={{ color: '#F8FAFC', fontSize: '0.875rem', margin: 0 }}>Email</p>
+                <a
+                  href="mailto:contact@aiplb.com"
+                  style={{
+                    color: '#10B981',
+                    fontSize: '1rem',
+                    textDecoration: 'none',
+                    fontWeight: 500
+                  }}
+                >
+                  contact@aiplb.com
+                </a>
+              </div>
+
+              <div style={{ marginTop: '1.5rem' }}>
+                <p style={{ color: '#F8FAFC', fontSize: '0.875rem', margin: 0 }}>Heures</p>
+                <p style={{ color: '#F8FAFC', fontSize: '1rem', margin: '0.25rem 0 0' }}>Lun-Ven 9h-18h UTC+2</p>
+              </div>
             </div>
 
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-              <h3 className="text-lg font-semibold text-white mb-4">Heures</h3>
-              <p className="text-gray-300">Lundi–Vendredi, 9h–18h</p>
-            </div>
-
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
-              <p className="text-gray-300 text-sm">
-                Vous parlez à un humain, pas un bot.
-              </p>
-            </div>
-
-            {/* Map Placeholder */}
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 h-40 flex items-center justify-center">
-              <span className="text-gray-400">Paris, France</span>
+            <div style={{ background: '#111827', padding: '2rem', borderRadius: '0.5rem', textAlign: 'center' }}>
+              <p style={{ color: '#F8FAFC', fontSize: '1rem', margin: 0 }}>Paris, France</p>
             </div>
           </div>
         </div>
