@@ -96,7 +96,7 @@ return (
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-300">Nouvelle intégration avec un CRM tiers</span>
-                <span class="text-yellow-400 font-mono">2024-05-03</span>
+                <span className="text-yellow-400 font-mono">2024-05-03</span>
               </div>
             </div>
           </article>
