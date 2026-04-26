@@ -1,9 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
@@ -28,8 +24,7 @@ return (
           text-decoration: underline;
         }
       `}</style>
-      <Nav />
-      <article style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
+<article style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
         <header style={{ marginBottom: '3rem' }}>
           <h1 style={{ fontSize: '2.25rem', fontWeight: '700', marginBottom: '0.5rem' }}>Conditions Générales d'Utilisation</h1>
           <p style={{ fontSize: '1.125rem', color: '#9CA3AF' }}>Autonomous IP licensing agent</p>
@@ -97,8 +92,6 @@ return (
           <p style={{ color: '#9CA3AF', fontSize: '0.875rem' }}>Dernière mise à jour : 2026-04-26</p>
         </footer>
       </article>
-      <ChatbotWidget />
-      <Footer />
-    </main>
+</main>
   );
 }
