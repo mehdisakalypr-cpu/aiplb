@@ -18,7 +18,7 @@ return (
         <article className="space-y-8 text-gray-300 text-sm leading-relaxed">
           <div>
             <h2 className="text-lg font-semibold text-white mb-3">Éditeur</h2>
-            <p>IP Licensing Bot SAS, RCS Paris, contact@aiplb.com</p>
+            <p>IP Licensing Bot SAS, Wyoming Secretary of State, USA, contact@aiplb.com</p>
           </div>
 
           <div>
