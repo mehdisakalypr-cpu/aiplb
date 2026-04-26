@@ -1,185 +1,126 @@
 "use client";
 
-import Link from "next/link";
 export default function GeneratedPage() {
 return (
-    <main style={{ minHeight: '100vh', background: 'var(--bg, #06140E)' }} className="text-white font-sans">
-      {/* Hero Section */}
-      <header
-        className="relative py-24 md:py-32 text-center overflow-hidden"
-        style={{
-          background: 'linear-gradient(to right, var(--primary, #10B981), var(--accent, #FBBF24))',
-          color: 'var(--bg, #06140E)', // Dark text for contrast on bright gradient
-        }}
-      >
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-            Protégez votre propriété intellectuelle.
-          </h1>
-          <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Notre agent autonome détecte les usages non autorisés et propose des licences.
+    <main style={{ minHeight: '100vh', background: 'var(--bg)', '--bg': '#06140E' }}>
+      <header className="relative w-full h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#10B981] via-[#10B981]/80 to-[#FBBF24] opacity-90" />
+        <img
+          src="https://image.pollinations.ai/prompt/abstract%20futuristic%20network%20of%20green%20and%20yellow%20data%20flows%20on%20dark%20background%2C%20cyberpunk%20style%2C%20high%20contrast%2C%204K?width=1920&height=1080&model=flux&nologo=true"
+          alt="Futuristic data network representing IP licensing automation"
+          className="absolute inset-0 w-full h-full object-cover z-[-1]"
+        />
+        <div className="relative z-10 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Vos brevets sont utilisés sans votre accord</h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
+            IP Licensing Bot traque en temps réel qui exploite votre propriété intellectuelle sur le web et vous aide à monétiser ces usages.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
               href="/demo"
-              className="px-8 py-3 rounded-full font-bold text-lg transition-all duration-300
-                         bg-[var(--bg,#06140E)] text-[var(--primary,#10B981)]
-                         hover:bg-[var(--primary,#10B981)] hover:text-[var(--bg,#06140E)]
-                         border-2 border-[var(--bg,#06140E)]"
+              className="px-8 py-3 bg-[#10B981] text-white font-semibold rounded-lg hover:bg-[#059669] transition-colors"
               aria-label="Voir une démo de IP Licensing Bot"
             >
               Voir une démo
-            </Link>
-            <Link
+            </a>
+            <a
               href="/offres"
-              className="px-8 py-3 rounded-full font-bold text-lg transition-all duration-300
-                         border-2 border-[var(--bg,#06140E)] text-[var(--bg,#06140E)]
-                         hover:bg-[var(--bg,#06140E)] hover:text-[var(--primary,#10B981)]"
-              aria-label="Voir les offres de IP Licensing Bot"
+              className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors"
+              aria-label="Voir les offres d'abonnement"
             >
               Voir les offres
-            </Link>
+            </a>
           </div>
         </div>
       </header>
 
-      {/* Le problème Section */}
-      <section className="py-16 md:py-24 bg-[var(--bg,#06140E)] text-white">
-        <div className="container mx-auto px-4 max-w-3xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[var(--primary,#10B981)]">
-            Le problème actuel.
-          </h2>
-          <p className="text-lg md:text-xl mb-4 leading-relaxed">
-            Identifier les contrefaçons coûte cher et prend du temps.
-          </p>
-          <p className="text-lg md:text-xl mb-4 leading-relaxed">
-            Plus de 70% des usages non licenciés passent inaperçus.
-          </p>
-          <p className="text-lg md:text-xl leading-relaxed">
-            Vous perdez des revenus potentiels chaque jour.
-          </p>
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-8">Le problème</h2>
+        <div className="space-y-4 text-white/80 text-lg">
+          <p>• 1 entreprise sur 3 ignore que ses brevets sont exploités par d’autres.</p>
+          <p>• 60% des infractions détectées concernent des PME et startups.</p>
+          <p>• Chaque jour sans action coûte entre 5 000 € et 50 000 € de revenus perdus.</p>
         </div>
       </section>
 
-      {/* Ce que IP Licensing Bot fait Section */}
-      <section className="py-16 md:py-24 bg-[var(--bg,#06140E)] text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--primary,#10B981)]">
-            Ce que IP Licensing Bot fait.
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <p className="text-5xl mb-4">🔍</p>
-              <h3 className="text-xl font-semibold mb-2 text-[var(--accent,#FBBF24)]">Surveillance continue</h3>
-              <p className="text-gray-300">Détecte l&apos;usage de votre IP sur le web.</p>
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-12">Ce que IP Licensing Bot fait</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { emoji: '🔍', title: 'Surveille le web', desc: 'Scanne sites, marketplaces et bases de données en temps réel' },
+            { emoji: '✍️', title: 'Rédige automatiquement', desc: 'Génère des lettres de mise en demeure et contrats de licence' },
+            { emoji: '📊', title: 'Calcule les redevances', desc: 'Évalue les revenus générés par l’usage non autorisé' },
+            { emoji: '💡', title: 'Propose des licences', desc: 'Offre une solution commerciale clé en main' }
+          ].map((item, i) => (
+            <article key={i} className="bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-sm">
+              <div className="text-4xl mb-4">{item.emoji}</div>
+              <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+              <p className="text-white/80">{item.desc}</p>
             </article>
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <p className="text-5xl mb-4">✍️</p>
-              <h3 className="text-xl font-semibold mb-2 text-[var(--accent,#FBBF24)]">Rédaction automatisée</h3>
-              <p className="text-gray-300">Génère des mises en demeure personnalisées.</p>
-            </article>
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <p className="text-5xl mb-4">🤝</p>
-              <h3 className="text-xl font-semibold mb-2 text-[var(--accent,#FBBF24)]">Offres de licence</h3>
-              <p className="text-gray-300">Propose des licences commerciales en un clic.</p>
-            </article>
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <p className="text-5xl mb-4">💰</p>
-              <h3 className="text-xl font-semibold mb-2 text-[var(--accent,#FBBF24)]">Récupération de revenus</h3>
-              <p className="text-gray-300">Transforme les violations en opportunités.</p>
-            </article>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Comment ça marche Section */}
-      <section className="py-16 md:py-24 bg-[var(--bg,#06140E)] text-white">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--primary,#10B981)]">
-            Comment ça marche.
-          </h2>
-          <div className="flex flex-col gap-8">
-            <div className="flex items-center bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
-              <span className="text-4xl font-extrabold text-[var(--accent,#FBBF24)] mr-6">1.</span>
-              <p className="text-xl text-gray-200">Configurez votre propriété intellectuelle.</p>
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-12">Comment ça marche</h2>
+        <div className="space-y-8">
+          {[
+            { num: '1', text: 'Vous ajoutez vos brevets et identifiants de surveillance' },
+            { num: '2', text: 'Le bot détecte les usages non autorisés en continu' },
+            { num: '3', text: 'Vous recevez un rapport avec options de licence ou action juridique' }
+          ].map((step, i) => (
+            <div key={i} className="flex items-start gap-6">
+              <div className="flex-shrink-0 w-12 h-12 bg-[#10B981] rounded-full flex items-center justify-center text-xl font-bold text-white">
+                {step.num}
+              </div>
+              <p className="text-white/80 text-lg pt-2">{step.text}</p>
             </div>
-            <div className="flex items-center bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
-              <span className="text-4xl font-extrabold text-[var(--accent,#FBBF24)] mr-6">2.</span>
-              <p className="text-xl text-gray-200">Le bot scanne le web en continu.</p>
-            </div>
-            <div className="flex items-center bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700">
-              <span className="text-4xl font-extrabold text-[var(--accent,#FBBF24)] mr-6">3.</span>
-              <p className="text-xl text-gray-200">Il agit et vous informe des résultats.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Pour qui Section */}
-      <section className="py-16 md:py-24 bg-[var(--bg,#06140E)] text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--primary,#10B981)]">
-            Pour qui est IP Licensing Bot ?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <h3 className="text-2xl font-semibold mb-4 text-[var(--accent,#FBBF24)]">Inventeurs indépendants</h3>
-              <p className="text-gray-300">Qui veulent protéger leurs créations sans frais juridiques élevés.</p>
+      <section className="py-16 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-12">Pour qui</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { title: 'PME innovantes', desc: 'Qui veulent protéger leurs brevets sans budget juridique' },
+            { title: 'Startups en croissance', desc: 'Qui découvrent des usages non autorisés à l’international' },
+            { title: 'Départements R&D', desc: 'Qui veulent automatiser la veille sur leurs innovations' }
+          ].map((item, i) => (
+            <article key={i} className="bg-white/5 p-6 rounded-xl border border-white/10">
+              <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+              <p className="text-white/80">{item.desc}</p>
             </article>
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <h3 className="text-2xl font-semibold mb-4 text-[var(--accent,#FBBF24)]">PME innovantes</h3>
-              <p className="text-gray-300">Qui cherchent à monétiser leurs brevets efficacement et simplement.</p>
-            </article>
-            <article className="bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-700">
-              <h3 className="text-2xl font-semibold mb-4 text-[var(--accent,#FBBF24)]">Grands groupes</h3>
-              <p className="text-gray-300">Qui ont besoin d&apos;une surveillance globale de leur portefeuille IP.</p>
-            </article>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Pricing Teaser Section */}
-      <section className="py-16 md:py-24 bg-[var(--bg,#06140E)] text-white text-center">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[var(--primary,#10B981)]">
-            Des offres adaptées à vos besoins.
-          </h2>
-          <p className="text-lg md:text-xl mb-8 text-gray-200">
-            Choisissez parmi nos trois plans pour une protection complète et rentable.
-          </p>
-          <Link
-            href="/offres"
-            className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all duration-300
-                       bg-[var(--primary,#10B981)] text-[var(--bg,#06140E)]
-                       hover:bg-[var(--accent,#FBBF24)] hover:text-[var(--bg,#06140E)]"
-            aria-label="Voir les 3 offres de IP Licensing Bot"
-          >
-            Voir les 3 offres
-          </Link>
-        </div>
+      <section className="py-16 px-4 max-w-6xl mx-auto text-center">
+        <p className="text-white/80 text-lg mb-8">
+          Des tarifs transparents et sans surprise pour protéger vos brevets efficacement.
+        </p>
+        <a
+          href="/offres"
+          className="inline-block px-8 py-3 bg-[#10B981] text-white font-semibold rounded-lg hover:bg-[#059669] transition-colors"
+          aria-label="Voir les 3 offres d'abonnement"
+        >
+          Voir les 3 offres
+        </a>
       </section>
 
-      {/* Final CTA Band */}
-      <section
-        className="py-16 md:py-24 text-center"
-        style={{
-          background: 'linear-gradient(to right, var(--primary, #10B981), var(--accent, #FBBF24))',
-          color: 'var(--bg, #06140E)', // Dark text for contrast on bright gradient
-        }}
-      >
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-            Prêt à protéger votre propriété intellectuelle ?
+      <section className="relative w-full py-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#FBBF24] to-[#10B981]" />
+        <div className="relative z-10 text-center px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            Protégez vos brevets dès aujourd’hui
           </h2>
-          <Link
+          <a
             href="/contact"
-            className="inline-block px-10 py-4 rounded-full font-bold text-lg transition-all duration-300
-                       bg-white text-[var(--primary,#10B981)]
-                       hover:bg-gray-200 hover:text-[var(--primary,#10B981)]"
-            aria-label="Contactez-nous pour IP Licensing Bot"
+            className="inline-block px-8 py-4 bg-white text-[#06140E] font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="Contacter l'équipe pour souscrire"
           >
-            Contactez-nous
-          </Link>
+            Contacter l’équipe
+          </a>
         </div>
       </section>
     </main>
