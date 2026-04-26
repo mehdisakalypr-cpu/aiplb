@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type Me = { id: string; email: string } | null;
+type Me = { id: string; email: string; is_admin?: boolean } | null;
 
 const LINKS = [
   { href: "/", label: "Accueil" },
@@ -29,7 +29,7 @@ export default function Nav() {
       .then((r) => (r.ok ? r.json() : Promise.resolve({ user: null })))
       .then((d) => {
         if (!cancelled) {
-          setMe(d.user || null);
+          setMe(d.user ? { ...d.user, is_admin: !!d.is_admin } : null);
           setLoading(false);
         }
       })
@@ -76,6 +76,11 @@ export default function Nav() {
               </Link>
             );
           })}
+          {me?.is_admin ? (
+            <Link href="/admin" className={pathname?.startsWith("/admin") ? "text-white font-semibold" : "text-[#FACC15] hover:text-white transition font-semibold"}>
+              Admin
+            </Link>
+          ) : null}
         </nav>
 
         <div className="hidden md:flex items-center gap-3 text-sm">
