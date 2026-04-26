@@ -1,14 +1,9 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: '#06140E' }}>
-      <Nav />
-      <header style={{ padding: '4rem 1rem', textAlign: 'center' }}>
+<header style={{ padding: '4rem 1rem', textAlign: 'center' }}>
         <h1 style={{ color: '#FFFFFF', fontSize: '2.5rem', marginBottom: '0.5rem' }}>Contact</h1>
         <p style={{ color: '#A0AEC0', fontSize: '1.25rem' }}>Réponse en moins de 24h</p>
       </header>
@@ -169,9 +164,6 @@ return (
           </div>
         </article>
       </section>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
