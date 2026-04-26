@@ -1,9 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
@@ -21,8 +17,7 @@ return (
           color: #FCD34D;
         }
       `}</style>
-      <Nav />
-      <article className="max-w-4xl mx-auto px-6 py-16">
+<article className="max-w-4xl mx-auto px-6 py-16">
         <header className="mb-12">
           <h1 className="text-3xl font-bold text-white mb-4">Conditions Générales de Vente</h1>
           <p className="text-gray-300">Autonomous IP licensing agent</p>
@@ -82,8 +77,6 @@ return (
           </footer>
         </section>
       </article>
-      <ChatbotWidget />
-      <Footer />
-    </main>
+</main>
   );
 }
