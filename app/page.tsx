@@ -1,9 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)', '--bg': '#06140E' }}>
@@ -17,10 +13,7 @@ return (
           font-family: system-ui, -apple-system, sans-serif;
         }
       `}</style>
-
-      <Nav />
-
-      {/* Hero */}
+{/* Hero */}
       <header style={{
         background: 'linear-gradient(135deg, var(--primary), var(--accent))',
         padding: '4rem 1rem',
@@ -249,9 +242,6 @@ return (
           Parler à un expert
         </a>
       </section>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
