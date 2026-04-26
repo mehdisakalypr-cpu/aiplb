@@ -1,116 +1,185 @@
-import Link from "next/link";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import ChatbotWidget from "@/components/ChatbotWidget";
 
-export const metadata = {
-  title: "Services — AIPLB",
-  description:
-    "AIPLB's five core services: surface tracking, daily snapshots, diff intelligence, weekly digest, and API access.",
-};
+export default function GeneratedPage() {
+return (
+    <main
+      style={{ minHeight: "100vh", "--bg": "#06140E", background: "var(--bg)" }}
+      className="relative text-white"
+    >
+      <Nav />
 
-const SERVICES = [
-  {
-    n: "01",
-    title: "4-surface competitor tracking",
-    body:
-      "We watch the four pages that actually move: pricing, blog, careers and homepage. These cover 95% of strategic signals — repricing, positioning shifts, hiring waves, launches.",
-    example:
-      "Example: HubSpot raises Marketing Hub Pro $890 → $1,170 (+31.5%). Detected within 24h on /pricing/marketing.",
-  },
-  {
-    n: "02",
-    title: "Daily snapshots with LLM extraction",
-    body:
-      "Once per day (twice on Enterprise) we scrape each surface, normalise the HTML, and pass it through Claude to extract pricing tables, posts, job descriptions, hero copy. No template per competitor — the LLM adapts to any layout.",
-    example:
-      "Even if a competitor redesigns their /pricing in React or behind a Cloudflare challenge, we still recover the structured price grid.",
-  },
-  {
-    n: "03",
-    title: "Diff intelligence with importance scoring",
-    body:
-      "Every snapshot is diffed against the previous one. A second LLM pass scores the change (low / medium / high) and writes a one-paragraph 'why it matters' aimed at a founder, not a journalist.",
-    example:
-      "12 new AI/ML postings (was 3 last month) → tagged HIGH, with commentary: '4× hiring acceleration confirms a Q3 AI launch — plan countermove now'.",
-  },
-  {
-    n: "04",
-    title: "Weekly digest delivery",
-    body:
-      "Every Monday 7am local, we compile the week into a single email (and optional Slack post). Top 3 changes go front-and-centre, the long tail collapses below. The exec view is one screen, no scrolling required.",
-    example:
-      "See /demo for a real one-week digest tracking HubSpot. Open rate in beta cohort: 78%.",
-  },
-  {
-    n: "05",
-    title: "API access (Enterprise)",
-    body:
-      "REST endpoints to pull every snapshot, diff and digest into your own BI / Notion / Slack pipeline. Webhook out on every HIGH-importance change. OpenAPI spec available on request.",
-    example:
-      "Push HIGH-importance pricing changes to your sales team's Slack #competitive-intel channel within minutes.",
-  },
-];
+      <header className="py-20 px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          className="max-w-4xl mx-auto p-8 rounded-xl"
+          style={{
+            background:
+              "linear-gradient(90deg, #10B981 0%, #FBBF24 100%)",
+          }}
+        >
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+            Services IP Licensing Bot
+          </h1>
+          <p className="text-xl sm:text-2xl text-white font-medium">
+            Votre agent autonome de licence de propriété intellectuelle.
+          </p>
+        </div>
+      </header>
 
-export default function ServicesPage() {
-  return (
-    <main>
-      <section className="mx-auto max-w-4xl px-6 pt-20 pb-12">
-        <p className="text-xs uppercase tracking-[0.2em] text-[var(--accent-gold)]">
-          Services
-        </p>
-        <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-          Five things AIPLB does so you don't have to.
-        </h1>
-        <p className="mt-5 text-lg text-[var(--muted)]">
-          AIPLB is a focused tool. We replace the 4-hour Monday-morning scroll
-          across competitor blogs, pricing pages, careers boards and homepages
-          with a single 5-minute read in your inbox.
-        </p>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 pb-24 space-y-10">
-        {SERVICES.map((s) => (
-          <article
-            key={s.n}
-            className="rounded-xl border border-[var(--border)] p-6 md:p-8"
-          >
-            <div className="flex items-baseline gap-4">
-              <span className="text-[var(--accent-gold)] font-mono text-sm">
-                {s.n}
-              </span>
-              <h2 className="text-2xl font-semibold tracking-tight">
-                {s.title}
-              </h2>
-            </div>
-            <p className="mt-4 text-[var(--foreground)]/90">{s.body}</p>
-            <p className="mt-3 text-sm text-[var(--muted)] border-l-2 border-[var(--accent-gold)] pl-3">
-              {s.example}
-            </p>
-          </article>
-        ))}
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 pb-24 text-center">
-        <h2 className="text-2xl font-semibold tracking-tight">
-          Want to see it on real data?
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12" style={{ color: "#10B981" }}>
+          Nos Services Concrets
         </h2>
-        <p className="mt-3 text-[var(--muted)]">
-          The /demo page shows a complete weekly digest tracking HubSpot. No
-          signup required.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3 justify-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
+            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
+              Surveillance IP Automatisée
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Détecte l&apos;utilisation non autorisée de votre IP brevetée sur le web.
+              Identifie les contrevenants potentiels en temps réel.
+            </p>
+            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
+              Ce que vous obtenez :
+            </h4>
+            <ul className="list-disc pl-5 text-gray-200 space-y-2">
+              <li>Rapports d&apos;usage détaillés.</li>
+              <li>Alertes en temps réel.</li>
+              <li>Preuves d&apos;utilisation horodatées.</li>
+            </ul>
+          </article>
+
+          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
+            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
+              Rédaction de Mises en Demeure
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Génère des lettres de cessation et d&apos;abstention personnalisées.
+              Conformes aux exigences légales, prêtes à l&apos;envoi.
+            </p>
+            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
+              Ce que vous obtenez :
+            </h4>
+            <ul className="list-disc pl-5 text-gray-200 space-y-2">
+              <li>Lettres prêtes à l&apos;envoi.</li>
+              <li>Arguments juridiques clairs.</li>
+              <li>Suivi des envois.</li>
+            </ul>
+          </article>
+
+          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
+            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
+              Négociation de Licences
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Propose des licences commerciales cliquables aux contrevenants.
+              Facilite un accord rapide et équitable sans friction.
+            </p>
+            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
+              Ce que vous obtenez :
+            </h4>
+            <ul className="list-disc pl-5 text-gray-200 space-y-2">
+              <li>Contrats de licence standardisés.</li>
+              <li>Options de paiement flexibles.</li>
+              <li>Historique des accords.</li>
+            </ul>
+          </article>
+
+          <article className="p-6 rounded-lg shadow-lg" style={{ background: "#0D251D" }}>
+            <h3 className="text-2xl font-semibold mb-4" style={{ color: "#FBBF24" }}>
+              Gestion des Litiges
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Centralise communications et documents pour actions légales.
+              Prépare efficacement votre dossier en cas de contentieux.
+            </p>
+            <h4 className="text-lg font-medium mb-3" style={{ color: "#10B981" }}>
+              Ce que vous obtenez :
+            </h4>
+            <ul className="list-disc pl-5 text-gray-200 space-y-2">
+              <li>Dossiers de preuves organisés.</li>
+              <li>Historique des échanges.</li>
+              <li>Préparation aux contentieux.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-12" style={{ color: "#10B981" }}>
+          Notre Technologie Sous le Capot
+        </h2>
+        <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 p-8 rounded-xl" style={{ background: "#0D251D" }}>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">OpenAI</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">LangChain</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">Next.js</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">React</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">PostgreSQL</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">Vercel</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">Tailwind CSS</span>
+          <span className="text-xl sm:text-2xl font-medium text-gray-300">TypeScript</span>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10" style={{ color: "#10B981" }}>
+          Questions Fréquentes
+        </h2>
+        <ul className="space-y-6">
+          <li>
+            <Link
+              href="/faq#detection"
+              className="text-xl font-medium hover:underline"
+              style={{ color: "#FBBF24" }}
+            >
+              Comment fonctionne la détection ?
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/faq#legalite"
+              className="text-xl font-medium hover:underline"
+              style={{ color: "#FBBF24" }}
+            >
+              Est-ce légalement contraignant ?
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/faq#couts"
+              className="text-xl font-medium hover:underline"
+              style={{ color: "#FBBF24" }}
+            >
+              Quels sont les coûts ?
+            </Link>
+          </li>
+        </ul>
+      </section>
+
+      <section className="py-20 px-4 sm:px-6 lg:px-8 text-center">
+        <div
+          className="max-w-3xl mx-auto p-10 rounded-xl flex flex-col items-center justify-center"
+          style={{
+            background:
+              "linear-gradient(90deg, #10B981 0%, #FBBF24 100%)",
+          }}
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8">
+            Prêt à Protéger Votre IP ?
+          </h2>
           <Link
             href="/demo"
-            className="rounded-md bg-[var(--accent-gold)] text-black px-5 py-3 font-medium"
+            className="inline-block px-10 py-4 text-xl font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105"
+            style={{ background: "#06140E", color: "#FBBF24" }}
           >
-            See live demo →
-          </Link>
-          <Link
-            href="/pricing"
-            className="rounded-md border border-[var(--border)] px-5 py-3 font-medium hover:bg-neutral-900"
-          >
-            View pricing
+            Demander une Démonstration
           </Link>
         </div>
       </section>
+
+      <Footer />
+      <ChatbotWidget />
     </main>
   );
 }
