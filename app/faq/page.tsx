@@ -1,138 +1,128 @@
-import Link from "next/link";
+"use client";
+
 export default function GeneratedPage() {
-const primaryColor = "#10B981";
-  const accentColor = "#FBBF24";
-  const bgColor = "#06140E";
-  const textColor = "#E0E0E0"; // Light grey for text on dark background
-  const headingColor = "#FFFFFF"; // White for headings
+return (
+    <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+      
 
-  return (
-    <main style={{ minHeight: '100vh', background: bgColor, color: textColor }}>
-<div className="container mx-auto px-4 py-16 max-w-4xl">
-        {/* Hero Section */}
-        <header className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold mb-4" style={{ color: headingColor }}>
-            Questions Fréquentes
-          </h1>
-          <p className="text-xl" style={{ color: textColor }}>
-            Vos interrogations, nos réponses claires.
-          </p>
-        </header>
+      <header className="relative w-full py-16 md:py-24">
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">FAQ</h1>
+        </div>
+      </header>
 
-        {/* FAQ Sections */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-8" style={{ color: headingColor }}>
-            Produit
-          </h2>
-          <div className="space-y-6">
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Comment le Bot détecte-t-il l'usage ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Notre Bot scanne le web ouvert, les réseaux sociaux et les bases de données publiques. Il utilise l'intelligence artificielle pour identifier les correspondances précises avec votre propriété intellectuelle brevetée.
-              </p>
-            </details>
+      <section className="container mx-auto px-6 py-12">
+        <div className="max-w-3xl mx-auto space-y-8">
+          {/* Produit */}
+          <article>
+            <h2 className="text-2xl font-semibold text-white mb-6">Produit</h2>
+            <div className="space-y-4">
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                  Comment l'outil détecte-t-il l'utilisation de mon brevet ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  IP Licensing Bot scanne les dépôts publics de code, les publications en ligne, les bases de données techniques et les forums. Il compare les extraits de code ou descriptions avec les caractéristiques de votre brevet.
+                </p>
+              </details>
 
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Que fait-il après détection ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Après avoir identifié une utilisation non autorisée, le Bot rédige automatiquement un courrier de mise en demeure. Il propose ensuite une licence commerciale simple, payable en un clic.
-              </p>
-            </details>
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                  Puis-je refuser une licence proposée ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Oui. Vous recevez un brouillon de lettre de mise en demeure avec une offre de licence. Vous pouvez modifier les termes, supprimer la licence, ou contacter l'utilisateur pour négocier directement.
+                </p>
+              </details>
 
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Puis-je revoir les actions du Bot ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Oui, absolument. Toutes les actions proposées par le Bot, qu'il s'agisse de courriers ou d'offres de licence, sont soumises à votre validation finale avant envoi.
-              </p>
-            </details>
-          </div>
-        </section>
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                  Le bot fonctionne-t-il en temps réel ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Non. Les scans sont planifiés quotidiennement pour limiter la charge réseau. Les alertes sont envoyées par email avec un lien vers votre tableau de bord pour consulter les détails et agir.
+                </p>
+              </details>
+            </div>
+          </article>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-8" style={{ color: headingColor }}>
-            Tarification
-          </h2>
-          <div className="space-y-6">
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Comment fonctionne la facturation ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Nous proposons un abonnement mensuel. Des frais supplémentaires sont appliqués, basés sur les licences commerciales effectivement vendues par le Bot.
-              </p>
-            </details>
+          {/* Pricing */}
+          <article>
+            <h2 className="text-2xl font-semibold text-white mb-6">Pricing</h2>
+            <div className="space-y-4">
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                  Puis-je changer de formule après souscription ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Oui. Vous pouvez passer à une formule inférieure ou supérieure à tout moment. Les ajustements de prix sont calculés au prorata pour le mois en cours.
+                </p>
+              </details>
 
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Puis-je changer d'offre ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Oui, vous pouvez modifier votre abonnement à tout moment. Les changements prendront effet au début de votre prochain cycle de facturation.
-              </p>
-            </details>
-          </div>
-        </section>
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                  Que se passe-t-il si je dépasse le quota de brevets ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Votre compte est désactivé pour les nouveaux scans. Vous recevez un email pour mettre à jour votre formule. Les scans en cours s'arrêtent immédiatement.
+                </p>
+              </details>
+            </div>
+          </article>
 
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-8" style={{ color: headingColor }}>
-            Sécurité & Données
-          </h2>
-          <div className="space-y-6">
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Le service est-il conforme au RGPD ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Oui, nous respectons strictement le Règlement Général sur la Protection des Données (RGPD). Vos informations et celles de vos clients sont traitées avec la plus grande confidentialité.
-              </p>
-            </details>
+          {/* Sécurité & data */}
+          <article>
+            <h2 className="text-2xl font-semibold text-white mb-6">Sécurité & data</h2>
+            <div className="space-y-4">
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                  Où sont hébergés mes brevets et données ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Sur des serveurs sécurisés en France (Hetzner Paris). Les données sont chiffrées au repos et en transit. Aucune sauvegarde n'est exportée hors de l'UE.
+                </p>
+              </details>
 
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Où sont hébergées mes données ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Toutes vos données sont hébergées sur des serveurs sécurisés situés en Europe, garantissant un cadre légal de protection des données robuste.
-              </p>
-            </details>
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                Puis-je exporter mes données personnelles ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Oui. Via votre espace client, vous pouvez télécharger une archive de vos données (bibliothèque de brevets, historique des scans, factures). Le traitement est effectué sous 30 jours.
+                </p>
+              </details>
 
-            <details className="p-6 rounded-lg shadow-lg" style={{ backgroundColor: '#0A2018' }}>
-              <summary className="font-semibold text-lg cursor-pointer py-2 focus:outline-none" style={{ color: primaryColor }}>
-                Puis-je exporter mes données ?
-              </summary>
-              <p className="pt-4 leading-relaxed" style={{ color: textColor }}>
-                Oui, vous avez la possibilité d'exporter l'intégralité de vos données à tout moment, directement depuis votre tableau de bord.
-              </p>
-            </details>
-          </div>
-        </section>
+              <details className="group border-b border-gray-700 py-4">
+                <summary className="flex justify-between items-center cursor-pointer text-white font-medium text-lg">
+                Comment supprimer définitivement mon compte ?
+                  <span className="transform transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p className="mt-4 text-gray-300 pl-1">
+                  Dans les paramètres de votre compte, cliquez sur "Supprimer mon compte". Toutes vos données sont effacées sous 90 jours. Les scans en cours sont interrompus immédiatement.
+                </p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="text-center mt-20">
-          <h2 className="text-3xl font-bold mb-6" style={{ color: headingColor }}>
-            Une autre question ?
-          </h2>
-          <Link href="/contact" passHref>
-            <span
-              className="inline-block px-8 py-4 text-lg font-bold rounded-full transition-all duration-300 ease-in-out"
-              style={{
-                backgroundColor: accentColor,
-                color: bgColor, // Text on accent should be dark for contrast
-                boxShadow: `0 4px 15px rgba(251, 191, 36, 0.4)`, // Soft glow
-                cursor: 'pointer',
-              }}
-            >
-              Contactez-nous
-            </span>
-          </Link>
-        </section>
-      </div>
-</main>
+      <section className="container mx-auto px-6 py-16 text-center">
+        <h2 className="text-2xl font-semibold text-white mb-6">Une autre question ?</h2>
+        <a
+          href="https://aiplb.vercel.app/contact"
+          className="inline-block bg-accent text-black font-bold py-3 px-8 rounded-lg hover:bg-yellow-300 transition-colors"
+          aria-label="Contactez-nous pour toute question supplémentaire"
+        >
+          Contacter l'équipe
+        </a>
+      </section>
+    </main>
   );
 }
