@@ -1,9 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 return (
     <main style={{ minHeight: '100vh', background: 'var(--bg)' }}>
@@ -14,8 +10,7 @@ return (
           --accent: #FBBF24;
         }
       `}</style>
-      <Nav />
-      <header className="text-center py-16 px-4">
+<header className="text-center py-16 px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Démo de IP Licensing Bot</h1>
         <h2 className="text-xl md:text-2xl text-gray-300">Sur la marque HubSpot</h2>
       </header>
@@ -170,9 +165,6 @@ return (
           Lancer ma démo
         </a>
       </section>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
