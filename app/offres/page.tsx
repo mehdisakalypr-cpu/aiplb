@@ -1,7 +1,3 @@
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 const primaryColor = "#10B981";
   const accentColor = "#FBBF24";
@@ -89,9 +85,7 @@ const primaryColor = "#10B981";
       }}
       className="flex flex-col text-[var(--text-color)]"
     >
-      <Nav />
-
-      <div className="flex-grow container mx-auto px-4 py-12 max-w-7xl">
+<div className="flex-grow container mx-auto px-4 py-12 max-w-7xl">
         {/* Hero Section */}
         <header className="text-center py-16 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-lg shadow-lg mb-16">
           <h1 className="text-5xl font-extrabold text-[var(--dark-text-color)] mb-4">
@@ -227,9 +221,6 @@ const primaryColor = "#10B981";
           </a>
         </section>
       </div>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
