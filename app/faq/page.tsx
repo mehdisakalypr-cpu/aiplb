@@ -1,8 +1,4 @@
 import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
-
 export default function GeneratedPage() {
 const primaryColor = "#10B981";
   const accentColor = "#FBBF24";
@@ -12,9 +8,7 @@ const primaryColor = "#10B981";
 
   return (
     <main style={{ minHeight: '100vh', background: bgColor, color: textColor }}>
-      <Nav />
-
-      <div className="container mx-auto px-4 py-16 max-w-4xl">
+<div className="container mx-auto px-4 py-16 max-w-4xl">
         {/* Hero Section */}
         <header className="text-center mb-16">
           <h1 className="text-5xl font-extrabold mb-4" style={{ color: headingColor }}>
@@ -139,9 +133,6 @@ const primaryColor = "#10B981";
           </Link>
         </section>
       </div>
-
-      <Footer />
-      <ChatbotWidget />
-    </main>
+</main>
   );
 }
