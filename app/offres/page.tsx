@@ -59,7 +59,7 @@ const primaryColor = "#10B981";
 
   const guarantees = [
     {
-      title: "Essai 14 jours",
+      title: "Sans engagement",
       description: "Testez sans risque nos services.",
     },
     {
