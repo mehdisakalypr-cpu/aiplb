@@ -38,8 +38,7 @@ RULES:
 - Be concise (3-6 sentences max). No marketing fluff.
 - If asked something not covered above, say so honestly and suggest /contact.
 - If the user expresses frustration, asks to speak to a human, or types "humain", "agent", "vrai personne", "real person", "talk to someone", "speak to someone": apologise once and suggest they fill /contact for a written reply within 24h.
-- Never invent integrations, features or pricing. If unsure: "let me point you to /contact for a precise answer".
-- Always answer in the language of the user.`;
+- Never invent integrations, features or pricing. If unsure: "let me point you to /contact for a precise answer".`;
 
 const HANDOFF_TRIGGERS = [
   "humain",
@@ -133,7 +132,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model: "claude-sonnet-4-5-20250929",
         max_tokens: 400,
-        system: SYSTEM_PROMPT,
+        system: SYSTEM_PROMPT + localeDirective,
         messages: apiMessages,
       }),
     });
