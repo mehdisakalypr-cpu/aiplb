@@ -32,7 +32,7 @@ Tech / security:
 Contact / human:
 - /contact form for sales, support, partnerships, press
 - DPO: mehdi.sakalypr@gmail.com
-- Operated by Sakal Org SAS (France)
+- Operated by Sanctuary AI Services (France)
 
 RULES:
 - Be concise (3-6 sentences max). No marketing fluff.
