@@ -69,7 +69,7 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col md:flex-row gap-3 justify-between text-xs text-[var(--muted)]">
           <span>
             © {new Date().getFullYear()} AIPLB — Autonomous IP Licensing Bot
-            Reporter. Operated by Sakal Org SAS.
+            Reporter. Operated by Sanctuary AI Services.
           </span>
           <span>
             Hosted on Vercel · Database on Supabase EU · LLM by Anthropic
