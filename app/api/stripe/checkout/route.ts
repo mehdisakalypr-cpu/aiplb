@@ -41,7 +41,7 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${appUrl}/dashboard?checkout=success&plan=${plan}&duration=${duration}`,
+      success_url: `${appUrl}/service/setup?checkout=success&plan=${plan}&duration=${duration}`,
       cancel_url: `${appUrl}/offres?checkout=cancelled`,
       customer_email: user?.email,
       client_reference_id: user?.id,
