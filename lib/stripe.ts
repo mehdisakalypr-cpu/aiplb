@@ -51,3 +51,31 @@ export function priceIdFor(plan: PlanKey): string | null {
   if (!env) return null;
   return process.env[env] || null;
 }
+
+export type Duration = "mensuel" | "12mois" | "24mois" | "36mois";
+
+const DISCOUNT: Record<Duration, number> = {
+  mensuel: 0,
+  "12mois": 0.15,
+  "24mois": 0.25,
+  "36mois": 0.33,
+};
+
+const DURATION_LABEL: Record<Duration, string> = {
+  mensuel: "Mensuel",
+  "12mois": "12 mois (-15%)",
+  "24mois": "24 mois (-25%)",
+  "36mois": "36 mois (-33%)",
+};
+
+export function priceForDuration(
+  plan: PlanKey,
+  duration: Duration
+): { unit_amount: number; label: string } {
+  const base = PLANS[plan]?.price_eur ?? 0;
+  const discounted = base * (1 - DISCOUNT[duration]);
+  return {
+    unit_amount: Math.round(discounted * 100),
+    label: DURATION_LABEL[duration],
+  };
+}

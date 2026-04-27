@@ -1,122 +1,168 @@
 "use client";
 
+import { useState } from "react";
+
+type Plan = "starter" | "pro" | "scale";
+type Duration = "mensuel" | "12mois" | "24mois" | "36mois";
+
+const TIERS: Record<Plan, { name: string; price: number; sub: string; features: string[]; accent: string; isPro?: boolean }> = {
+  starter: {
+    name: "Starter",
+    price: 49,
+    sub: "1 concurrent suivi",
+    features: [
+      "1 concurrent suivi",
+      "1 rapport/jour à la demande",
+      "Alertes email",
+      "Historique 7 jours",
+      "Support email sous 48h",
+    ],
+    accent: "#7C3AED",
+  },
+  pro: {
+    name: "Pro",
+    price: 99,
+    sub: "10 concurrents suivis",
+    features: [
+      "10 concurrents suivis",
+      "4 rapports/jour à la demande",
+      "Alertes email + Slack",
+      "Historique 30 jours",
+      "Support prioritaire sous 24h",
+      "Accès API",
+    ],
+    accent: "#06B6D4",
+    isPro: true,
+  },
+  scale: {
+    name: "Scale",
+    price: 299,
+    sub: "50 concurrents suivis",
+    features: [
+      "50 concurrents suivis",
+      "24 rapports/jour à la demande",
+      "Alertes email + Slack + Webhooks",
+      "Historique 365 jours",
+      "Support dédié sous 12h",
+      "Accès API",
+    ],
+    accent: "#7C3AED",
+  },
+};
+
+const DISCOUNT: Record<Duration, number> = { mensuel: 0, "12mois": 0.15, "24mois": 0.25, "36mois": 0.33 };
+const DURATION_LABEL: Record<Duration, string> = {
+  mensuel: "Mensuel",
+  "12mois": "12 mois (-15%)",
+  "24mois": "24 mois (-25%)",
+  "36mois": "36 mois (-33%)",
+};
+
+function priceFor(plan: Plan, duration: Duration): number {
+  return Math.round(TIERS[plan].price * (1 - DISCOUNT[duration]) * 100) / 100;
+}
+
+function TierCard({ plan }: { plan: Plan }) {
+  const [duration, setDuration] = useState<Duration>("mensuel");
+  const [busy, setBusy] = useState(false);
+  const tier = TIERS[plan];
+
+  async function subscribe() {
+    setBusy(true);
+    try {
+      const res = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan, duration }),
+      });
+      const data = await res.json();
+      if (data?.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data?.error || "Une erreur est survenue.");
+        setBusy(false);
+      }
+    } catch (e) {
+      alert("Réseau indisponible. Réessayez.");
+      setBusy(false);
+    }
+  }
+
+  const border = tier.isPro ? `2px solid ${tier.accent}` : "1px solid #ffffff20";
+  return (
+    <article className="rounded-xl p-8 flex flex-col relative" style={{ background: "#0008", border }}>
+      {tier.isPro && (
+        <div
+          className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-semibold"
+          style={{ background: tier.accent, color: "#0F0A1F" }}
+        >
+          Le plus choisi
+        </div>
+      )}
+      <h3 className="text-2xl font-bold text-white mb-1">{tier.name}</h3>
+      <p className="text-white/60 mb-6 text-sm">{tier.sub}</p>
+
+      <p className="text-4xl font-bold text-white mb-1">
+        {priceFor(plan, duration)}
+        <span className="text-lg font-normal text-white/60">€/mois</span>
+      </p>
+      <p className="text-xs text-white/50 mb-6">HT, facturé selon la durée choisie</p>
+
+      <ul className="space-y-2 mb-6 text-white/85 text-sm">
+        {tier.features.map((f) => (
+          <li key={f}>• {f}</li>
+        ))}
+      </ul>
+
+      <div className="mb-6 pt-4 border-t border-white/10">
+        <p className="text-white/60 text-xs mb-2 font-semibold uppercase tracking-wider">Choisissez votre durée</p>
+        <div className="space-y-1 text-sm">
+          {(Object.keys(DURATION_LABEL) as Duration[]).map((d) => (
+            <button
+              key={d}
+              type="button"
+              onClick={() => setDuration(d)}
+              className="block w-full text-left py-1 px-2 rounded transition-colors"
+              style={{
+                background: duration === d ? `${tier.accent}33` : "transparent",
+                color: duration === d ? "#FFFFFF" : "#FFFFFFB0",
+                border: duration === d ? `1px solid ${tier.accent}` : "1px solid transparent",
+              }}
+            >
+              {DURATION_LABEL[d]} · {priceFor(plan, d)}€/mois
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={subscribe}
+        disabled={busy}
+        style={{ background: tier.accent, color: "#FFFFFF", opacity: busy ? 0.6 : 1 }}
+        className="block w-full text-center py-3 rounded-lg font-semibold mt-auto hover:opacity-90 transition-opacity disabled:cursor-wait"
+      >
+        {busy ? "Redirection vers Stripe…" : "S'abonner — annulez en 1 clic"}
+      </button>
+    </article>
+  );
+}
+
 export default function GeneratedPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#06140E' }}>
+    <main style={{ minHeight: "100vh", background: "#0F0A1F" }}>
       <header className="py-16 px-4 text-center">
         <h1 className="text-5xl font-bold text-white mb-4">Offres</h1>
-        <h2 className="text-xl text-white/80 max-w-2xl mx-auto">Choisissez selon votre rythme. Tous les rapports sont générés à la demande, jamais d&apos;attente passive.</h2>
+        <h2 className="text-xl text-white/80 max-w-2xl mx-auto">
+          Choisissez selon votre rythme. Tous les rapports sont générés à la demande, jamais d&apos;attente passive.
+        </h2>
       </header>
 
       <section className="px-4 pb-16 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          <article className="rounded-xl p-8 flex flex-col" style={{ background: '#0008', border: '1px solid #ffffff20' }}>
-            
-            <h3 className="text-2xl font-bold text-white mb-1">Starter</h3>
-            <p className="text-white/60 mb-6 text-sm">1 brevet surveillé</p>
-
-            <p className="text-4xl font-bold text-white mb-1">49<span className="text-lg font-normal text-white/60">€/mois</span></p>
-            <p className="text-xs text-white/50 mb-6">HT, facturé selon la durée choisie</p>
-
-            <ul className="space-y-2 mb-6 text-white/85 text-sm">
-              <li>• 1 brevet surveillé</li>
-              <li>• 1 rapport/jour à la demande</li>
-              <li>• Alertes email</li>
-              <li>• Historique 7 jours</li>
-              <li>• Support email sous 48h</li>
-              
-            </ul>
-
-            <div className="mb-6 pt-4 border-t border-white/10">
-              <p className="text-white/60 text-xs mb-2 font-semibold uppercase tracking-wider">Choisissez votre durée</p>
-              <ul className="space-y-1 text-sm">
-                <li className="text-white">Mensuel · 49€/mois</li>
-                <li className="text-white/70">12 mois (-15%) · 41.65€/mois</li>
-                <li className="text-white/70">24 mois (-25%) · 36.75€/mois</li>
-                <li className="text-white/70">36 mois (-33%) · 32.83€/mois</li>
-              </ul>
-            </div>
-
-            <a
-              href="/contact?tier=starter"
-              style={{ background: '#10B981', color: '#FFFFFF' }}
-              className="block w-full text-center py-3 rounded-lg font-semibold mt-auto hover:opacity-90 transition-opacity"
-            >
-              S'abonner — annulez en 1 clic
-            </a>
-          </article>
-
-          <article className="rounded-xl p-8 flex flex-col" style={{ background: '#0008', border: '2px solid #FACC15' }}>
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-semibold" style={{ background: '#FACC15', color: '#06140E' }}>Le plus choisi</div>
-            <h3 className="text-2xl font-bold text-white mb-1">Pro</h3>
-            <p className="text-white/60 mb-6 text-sm">10 brevets surveillés</p>
-
-            <p className="text-4xl font-bold text-white mb-1">99<span className="text-lg font-normal text-white/60">€/mois</span></p>
-            <p className="text-xs text-white/50 mb-6">HT, facturé selon la durée choisie</p>
-
-            <ul className="space-y-2 mb-6 text-white/85 text-sm">
-              <li>• 10 brevets surveillés</li>
-              <li>• 4 rapports/jour à la demande</li>
-              <li>• Alertes email + Slack</li>
-              <li>• Historique 30 jours</li>
-              <li>• Support prioritaire sous 24h</li>
-              <li className="text-white/85">• Accès API</li>
-            </ul>
-
-            <div className="mb-6 pt-4 border-t border-white/10">
-              <p className="text-white/60 text-xs mb-2 font-semibold uppercase tracking-wider">Choisissez votre durée</p>
-              <ul className="space-y-1 text-sm">
-                <li className="text-white">Mensuel · 99€/mois</li>
-                <li className="text-white/70">12 mois (-15%) · 84.15€/mois</li>
-                <li className="text-white/70">24 mois (-25%) · 74.25€/mois</li>
-                <li className="text-white/70">36 mois (-33%) · 66.33€/mois</li>
-              </ul>
-            </div>
-
-            <a
-              href="/contact?tier=pro"
-              style={{ background: '#10B981', color: '#FFFFFF' }}
-              className="block w-full text-center py-3 rounded-lg font-semibold mt-auto hover:opacity-90 transition-opacity"
-            >
-              S'abonner — annulez en 1 clic
-            </a>
-          </article>
-
-          <article className="rounded-xl p-8 flex flex-col" style={{ background: '#0008', border: '1px solid #ffffff20' }}>
-            
-            <h3 className="text-2xl font-bold text-white mb-1">Scale</h3>
-            <p className="text-white/60 mb-6 text-sm">50 brevets surveillés</p>
-
-            <p className="text-4xl font-bold text-white mb-1">299<span className="text-lg font-normal text-white/60">€/mois</span></p>
-            <p className="text-xs text-white/50 mb-6">HT, facturé selon la durée choisie</p>
-
-            <ul className="space-y-2 mb-6 text-white/85 text-sm">
-              <li>• 50 brevets surveillés</li>
-              <li>• 24 rapports/jour à la demande</li>
-              <li>• Alertes email + Slack + Webhooks</li>
-              <li>• Historique 365 jours</li>
-              <li>• Support dédié sous 12h</li>
-              <li className="text-white/85">• Accès API</li>
-            </ul>
-
-            <div className="mb-6 pt-4 border-t border-white/10">
-              <p className="text-white/60 text-xs mb-2 font-semibold uppercase tracking-wider">Choisissez votre durée</p>
-              <ul className="space-y-1 text-sm">
-                <li className="text-white">Mensuel · 299€/mois</li>
-                <li className="text-white/70">12 mois (-15%) · 254.15€/mois</li>
-                <li className="text-white/70">24 mois (-25%) · 224.25€/mois</li>
-                <li className="text-white/70">36 mois (-33%) · 200.33€/mois</li>
-              </ul>
-            </div>
-
-            <a
-              href="/contact?tier=scale"
-              style={{ background: '#10B981', color: '#FFFFFF' }}
-              className="block w-full text-center py-3 rounded-lg font-semibold mt-auto hover:opacity-90 transition-opacity"
-            >
-              S'abonner — annulez en 1 clic
-            </a>
-          </article>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <TierCard plan="starter" />
+          <TierCard plan="pro" />
+          <TierCard plan="scale" />
         </div>
 
         <p className="text-center text-white/50 text-xs mt-8 max-w-2xl mx-auto">
@@ -137,15 +183,15 @@ export default function GeneratedPage() {
       <section className="px-4 py-16 max-w-5xl mx-auto">
         <h2 className="text-2xl font-bold text-white text-center mb-8">Garanties</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article className="rounded-xl p-6 text-center" style={{ background: '#0008', border: '1px solid #ffffff15' }}>
+          <article className="rounded-xl p-6 text-center" style={{ background: "#0008", border: "1px solid #ffffff15" }}>
             <h3 className="text-lg font-semibold text-white mb-2">Annulation en 1 clic</h3>
             <p className="text-white/70 text-sm">Pas d&apos;engagement bloquant. Stop quand vous voulez depuis votre compte.</p>
           </article>
-          <article className="rounded-xl p-6 text-center" style={{ background: '#0008', border: '1px solid #ffffff15' }}>
+          <article className="rounded-xl p-6 text-center" style={{ background: "#0008", border: "1px solid #ffffff15" }}>
             <h3 className="text-lg font-semibold text-white mb-2">Support FR</h3>
             <p className="text-white/70 text-sm">Équipe francophone. Réponse sous 24h en semaine, sous 12h pour les Pro et Scale.</p>
           </article>
-          <article className="rounded-xl p-6 text-center" style={{ background: '#0008', border: '1px solid #ffffff15' }}>
+          <article className="rounded-xl p-6 text-center" style={{ background: "#0008", border: "1px solid #ffffff15" }}>
             <h3 className="text-lg font-semibold text-white mb-2">Données EU/RGPD (Frankfurt)</h3>
             <p className="text-white/70 text-sm">Hébergement Allemagne, conformité RGPD complète, aucune donnée hors UE.</p>
           </article>
@@ -153,11 +199,7 @@ export default function GeneratedPage() {
       </section>
 
       <section className="px-4 py-12 text-center">
-        <a
-          href="/faq"
-          style={{ color: '#10B981' }}
-          className="underline hover:no-underline font-medium"
-        >
+        <a href="/faq" style={{ color: "#7C3AED" }} className="underline hover:no-underline font-medium">
           Une question ? Consultez la FAQ
         </a>
       </section>
