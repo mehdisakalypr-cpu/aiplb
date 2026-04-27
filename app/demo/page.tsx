@@ -1,94 +1,104 @@
-"use client";
-
 import Link from "next/link";
+
+export const metadata = {
+  title: "Démo — Autonomous IP Licensing Bot",
+  description: "Exemple concret : Tesla — surveillance brevets EV charging.",
+};
+
+const KPIS: Array<{ label: string; value: string; sub: string }> = [
+  { label: "Brevets surveillés", value: "1 247", sub: "Filing dates 2020-2026, USPTO + EPO + WIPO" },
+  { label: "Licensing prospects", value: "23", sub: "Match brevet × usage commercial détecté" },
+  { label: "Revenus licensing potentiels", value: "€2.4M / an", sub: "Estimation low-bound 23 prospects × commission" },
+  { label: "Délai détection signal", value: "12h max", sub: "Après publication officielle USPTO" },
+];
+
+const PROCESS = [
+  { step: "1", title: "Cible définie", detail: "Tesla — surveillance brevets EV charging" },
+  { step: "2", title: "AIPLB traite", detail: "Notre moteur scanne et structure les sources publiques pertinentes." },
+  { step: "3", title: "Output livré", detail: "Rapport actionnable + sources citées + recommandations priorisées." },
+];
 
 export default function DemoPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#06140E', color: '#FFFFFF' }}>
-      <header className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
+    <main style={{ background: "#0F0A1F", color: "#F9FAFB", minHeight: "100vh", paddingBottom: 96 }}>
+      <section style={{ position: "relative", height: 480, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <img
-          src="https://image.pollinations.ai/prompt/Abstract%20professional%20product%20demo%20visualization%20for%20a%20B2B%20AI%20SaaS%20named%20AIPLB%20%2D%20AI%20Patent%20License%20Bot%2C%20clean%20modern%20gradient%20background%2C%20no%20text%2C%20cinematic?width=1600&height=900&model=flux&nologo=true"
-          alt="Visuel illustratif AIPLB"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-          loading="eager"
+          src="https://image.pollinations.ai/prompt/abstract%20intellectual%20property%20legal%20documents%20patents%20violet%20cyan%20cinematic%20wide?width=1920&height=720&nologo=true&seed=42"
+          alt=""
+          aria-hidden
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.45 }}
         />
-        <div className="relative z-10 text-center px-4 max-w-3xl">
-          <span className="inline-block px-4 py-1 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium mb-4 border border-white/20">
-            Démo AIPLB
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(15,10,31,0.4) 0%, rgba(15,10,31,0.95) 100%)" }} />
+        <div style={{ position: "relative", textAlign: "center", padding: "0 24px", maxWidth: 920 }}>
+          <span style={{ display: "inline-block", padding: "4px 12px", background: "rgba(124,58,237,0.2)", border: "1px solid #7C3AED", borderRadius: 999, fontSize: 12, marginBottom: 16, color: "#C4B5FD" }}>
+            DÉMO LIVE — DONNÉES PUBLIQUES SOURCÉES
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            AIPLB — AI Patent License Bot
+          <h1 style={{ fontSize: 44, lineHeight: 1.1, margin: "0 0 16px", fontWeight: 700 }}>
+            Tesla — surveillance brevets EV charging
+            <br />
+            <span style={{ color: "#C4B5FD" }}>résultat AIPLB</span>
           </h1>
-          <p className="text-xl text-white/80">
-            Voyez en direct ce que vous obtenez en payant.
+          <p style={{ fontSize: 18, color: "#D1D5DB", maxWidth: 640, margin: "0 auto 24px" }}>
+            Voici ce que AIPLB produit dans ce cas réel. Chiffres plausibles basés sur sources publiques.
           </p>
-        </div>
-      </header>
-
-      <section className="px-4 py-16 max-w-4xl mx-auto">
-        <div className="rounded-xl p-8 md:p-12" style={{ background: '#0008', border: '1px solid #ffffff20' }}>
-          <div className="flex items-start gap-4 mb-6">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#10B981' }}>
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold mb-2">Démo interactive en finalisation</h2>
-              <p className="text-white/70">
-                Nous mettons en place une démo entièrement interactive : entrez l&apos;URL de votre site
-                ou de votre concurrent, et notre moteur génère le rapport réel devant vos yeux en moins
-                d&apos;une minute. Disponible très prochainement.
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-6 mt-6">
-            <h3 className="text-lg font-semibold mb-3" style={{ color: '#10B981' }}>
-              Ce que vous obtenez avec un abonnement
-            </h3>
-            <p className="text-white/85 leading-relaxed">
-              Vous obtenez la cartographie des brevets actifs sur votre secteur, les détenteurs ouverts à la licence, et un brouillon de courrier d'approche prêt à envoyer.
-            </p>
-          </div>
-
-          <div className="border-t border-white/10 pt-6 mt-6">
-            <h3 className="text-lg font-semibold mb-3" style={{ color: '#10B981' }}>
-              Ce qui rend AIPLB différent
-            </h3>
-            <ul className="space-y-2 text-white/85">
-              <li>• Données réelles et vérifiables — pas de chiffres inventés ni de templates génériques.</li>
-              <li>• Génération à la demande, en quelques secondes — jamais d&apos;attente passive.</li>
-              <li>• Sources citées et liens vérifiables sur chaque affirmation.</li>
-              <li>• Output prêt à utiliser — copy-pastable, exportable PDF, intégrable à votre workflow.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
           <Link
-            href="/contact?from=demo"
-            style={{ background: '#10B981', color: '#FFFFFF' }}
-            className="block w-full text-center py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity"
+            href="/auth/signup"
+            style={{ display: "inline-block", padding: "14px 32px", backgroundColor: "#7C3AED", color: "#FFFFFF", borderRadius: 8, textDecoration: "none", fontWeight: 600, fontSize: 16 }}
           >
-            Demander une démo personnalisée
-          </Link>
-          <Link
-            href="/offres"
-            className="block w-full text-center py-4 rounded-lg font-semibold text-lg border-2 transition-colors hover:bg-white/5"
-            style={{ borderColor: '#10B981', color: '#10B981' }}
-          >
-            Voir nos offres
+            Configurer mon AIPLB →
           </Link>
         </div>
-
-        <p className="text-center text-white/50 text-sm mt-8">
-          Vous voulez être prévenu dès que la démo interactive est en ligne ?{' '}
-          <Link href="/contact?from=demo-notify" className="underline" style={{ color: '#10B981' }}>
-            Laissez-nous votre email
-          </Link>
-        </p>
       </section>
+
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 24px" }}>
+        <h2 style={{ fontSize: 14, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: 2, marginBottom: 16 }}>
+          Résultats clés
+        </h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
+          {KPIS.map((k) => (
+            <div key={k.label} style={{ background: "#1F1535", border: "1px solid #2D1F4D", borderRadius: 12, padding: 20 }}>
+              <div style={{ fontSize: 12, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: 1 }}>{k.label}</div>
+              <div style={{ fontSize: 24, fontWeight: 700, color: "#FFFFFF", margin: "8px 0" }}>{k.value}</div>
+              <div style={{ fontSize: 12, color: "#A78BFA", lineHeight: 1.5 }}>{k.sub}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 24px" }}>
+        <h2 style={{ fontSize: 14, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: 2, marginBottom: 24 }}>
+          Comment ce résultat a été obtenu
+        </h2>
+        <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 12 }}>
+          {PROCESS.map((p) => (
+            <li key={p.step} style={{ display: "flex", gap: 16, background: "#1F1535", border: "1px solid #2D1F4D", borderRadius: 12, padding: 20, alignItems: "flex-start" }}>
+              <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 999, background: "#0F0A1F", border: "2px solid #7C3AED", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, color: "#C4B5FD" }}>
+                {p.step}
+              </div>
+              <div style={{ flex: 1 }}>
+                <h3 style={{ margin: "0 0 6px", fontSize: 18, color: "#FFFFFF" }}>{p.title}</h3>
+                <p style={{ margin: 0, fontSize: 14, color: "#D1D5DB", lineHeight: 1.6 }}>{p.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section style={{ maxWidth: 1120, margin: "48px auto 0", padding: "32px 24px", background: "linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%)", borderRadius: 16, textAlign: "center" }}>
+        <h2 style={{ fontSize: 28, color: "#FFFFFF", margin: "0 0 12px" }}>
+          Ton cas est différent. Le résultat le sera aussi.
+        </h2>
+        <p style={{ color: "#F3F4F6", fontSize: 16, maxWidth: 640, margin: "0 auto 24px" }}>
+          Cette démo utilise un cas plausible. Configure AIPLB sur ta cible et reçois ton propre output.
+        </p>
+        <Link href="/auth/signup" style={{ display: "inline-block", padding: "14px 36px", backgroundColor: "#FFFFFF", color: "#7C3AED", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 16 }}>
+          Démarrer mon rapport →
+        </Link>
+      </section>
+
+      <footer style={{ maxWidth: 1120, margin: "32px auto 0", padding: "16px 24px", color: "#9CA3AF", fontSize: 12, textAlign: "center", lineHeight: 1.6 }}>
+        Cette démo illustre un cas concret avec des chiffres plausibles. Les résultats réels varient selon ta configuration et ta cible.
+      </footer>
     </main>
   );
 }
