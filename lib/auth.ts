@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import bcrypt from "bcryptjs";
 import { supabaseService } from "./supabase-server";
 
-const COOKIE_NAME = "aici_session";
+const COOKIE_NAME = "aiplb_session";
 const TOKEN_TTL_MIN = 30; // magic link
 const SESSION_TTL_DAYS = 30;
 
