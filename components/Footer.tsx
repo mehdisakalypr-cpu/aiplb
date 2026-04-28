@@ -72,7 +72,7 @@ export default function Footer() {
             Reporter. Operated by Sanctuary AI Services.
           </span>
           <span>
-            Hosted on Vercel · Database on Supabase EU · LLM by Anthropic
+            Hosted on Vercel · Database on Supabase EU · LLM by Anthropic · <a href="https://hub.gapup.io" target="_blank" rel="noopener" className="hover:text-white transition">All AI tools →</a>
           </span>
         </div>
       </div>
