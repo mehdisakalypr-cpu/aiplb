@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getSession } from "@/lib/auth/get-session";
 import { supabaseService } from "@/lib/supabase-server";
+import ChangePasswordSection from "./ChangePasswordSection";
 
 const PAGE_SIZE = 10;
 
@@ -36,15 +37,24 @@ async function getReports(
 export default async function MonComptePage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; reset?: string }>;
 }) {
-  const session = await getSession();
-  if (!session) redirect("/auth/login?redirect=/mon-compte");
+  const sessionMaybe = await getSession();
+  if (!sessionMaybe) redirect("/auth/login?redirect=/mon-compte");
+  const session = sessionMaybe!;
 
   const sp = await searchParams;
   const page = Math.max(1, parseInt(sp.page ?? "1", 10));
+  const reset = sp.reset === "1";
   const { rows: reports, total } = await getReports(session.user.id, page);
   const totalPages = Math.ceil(total / PAGE_SIZE);
+
+  const { data: clientRow } = await supabaseService()
+    .from("clients")
+    .select("password_hash")
+    .eq("id", session.user.id)
+    .maybeSingle();
+  const hasPassword = !!(clientRow && clientRow.password_hash);
 
   const initial = session.user.email[0]?.toUpperCase() ?? "?";
 
@@ -66,7 +76,7 @@ export default async function MonComptePage({
             type="submit"
             className="rounded-md border border-[var(--border)] px-3 py-1.5 text-sm text-[var(--muted)] hover:text-white"
           >
-            Se déconnecter
+            Se d\u00e9connecter
           </button>
         </form>
       </div>
@@ -79,7 +89,7 @@ export default async function MonComptePage({
               className="inline-block rounded-full px-3 py-1 text-xs font-medium text-white"
               style={{ background: "#10B981" }}
             >
-              Actif — {session.subscription.plan}
+              Actif \u2014 {session.subscription.plan}
             </span>
             <span className="text-sm text-[var(--muted)]">
               Expire le{" "}
@@ -99,6 +109,8 @@ export default async function MonComptePage({
           </div>
         )}
       </div>
+
+      <ChangePasswordSection hasPassword={hasPassword} highlight={reset} />
 
       <div>
         <h2 className="text-lg font-semibold mb-4">Mes rapports</h2>
@@ -131,7 +143,7 @@ export default async function MonComptePage({
                     href={`/mon-compte?page=${page - 1}`}
                     className="rounded-md border border-[var(--border)] px-3 py-1.5 hover:bg-neutral-900"
                   >
-                    Précédent
+                    Pr\u00e9c\u00e9dent
                   </Link>
                 )}
                 <span className="px-3 py-1.5 text-[var(--muted)]">

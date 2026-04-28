@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import crypto from "node:crypto";
+import bcrypt from "bcryptjs";
 import { supabaseService } from "./supabase-server";
 
 const COOKIE_NAME = "aici_session";
@@ -113,3 +114,49 @@ export async function upsertClientByEmail(email: string) {
 }
 
 export const COOKIE = COOKIE_NAME;
+
+// ── Password helpers ────────────────────────────────────────────────────────
+
+const BCRYPT_ROUNDS = 10;
+
+export async function hashPassword(password: string): Promise<string> {
+  if (typeof password !== "string" || password.length < 8) {
+    throw new Error("password too short");
+  }
+  return bcrypt.hash(password, BCRYPT_ROUNDS);
+}
+
+export async function setClientPassword(clientId: string, password: string): Promise<void> {
+  const hash = await hashPassword(password);
+  const { error } = await supabaseService()
+    .from("clients")
+    .update({ password_hash: hash, password_set_at: new Date().toISOString() })
+    .eq("id", clientId);
+  if (error) throw error;
+}
+
+export async function verifyClientPassword(
+  email: string,
+  password: string,
+): Promise<{ id: string; email: string } | null> {
+  const lower = email.toLowerCase();
+  const { data } = await supabaseService()
+    .from("clients")
+    .select("id, email, password_hash")
+    .eq("email", lower)
+    .maybeSingle();
+  if (!data || !data.password_hash) return null;
+  const ok = await bcrypt.compare(password, data.password_hash as string);
+  if (!ok) return null;
+  return { id: data.id as string, email: data.email as string };
+}
+
+export async function clientHasPassword(email: string): Promise<boolean> {
+  const lower = email.toLowerCase();
+  const { data } = await supabaseService()
+    .from("clients")
+    .select("password_hash")
+    .eq("email", lower)
+    .maybeSingle();
+  return !!(data && data.password_hash);
+}

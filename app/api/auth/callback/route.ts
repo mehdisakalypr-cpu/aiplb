@@ -15,6 +15,7 @@ const COOKIE_SUB = "aiplb_sub_active";
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const token = searchParams.get("token");
+  const next = searchParams.get("next");
   if (!token) return NextResponse.redirect(new URL("/auth/login?err=missing", req.url));
   const email = verifyMagicToken(token);
   if (!email) return NextResponse.redirect(new URL("/auth/login?err=invalid", req.url));
@@ -22,9 +23,9 @@ export async function GET(req: Request) {
   const client = await upsertClientByEmail(email);
   await setSessionCookie(client.id);
 
-  // Admin login policy: every admin starts every session in Free.
-  // Tier is opt-in via /admin (impersonate). This guarantees gates are tested
-  // honestly and the founder doesn't unintentionally stay on a paid plan.
+  // Only allow same-origin internal redirects via `next` to prevent open-redirect.
+  const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : null;
+
   if (await isAdmin(email)) {
     await supabaseService()
       .from("clients")
@@ -32,8 +33,8 @@ export async function GET(req: Request) {
       .eq("id", client.id);
     const c = await cookies();
     c.delete(COOKIE_SUB);
-    return NextResponse.redirect(new URL("/?welcome=admin", req.url));
+    return NextResponse.redirect(new URL(safeNext ?? "/?welcome=admin", req.url));
   }
 
-  return NextResponse.redirect(new URL("/dashboard", req.url));
+  return NextResponse.redirect(new URL(safeNext ?? "/dashboard", req.url));
 }
