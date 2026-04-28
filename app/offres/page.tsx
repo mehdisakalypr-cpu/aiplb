@@ -166,7 +166,7 @@ export default function GeneratedPage() {
         </div>
 
         <p className="text-center text-white/50 text-xs mt-8 max-w-2xl mx-auto">
-          Aucun essai gratuit. Aucun remboursement. Toute souscription est immédiatement active. Annulation possible à tout moment depuis votre espace, l&apos;abonnement reste actif jusqu&apos;à la fin de la période payée.
+          Annulation possible à tout moment depuis votre espace, l&apos;abonnement reste actif jusqu&apos;à la fin de la période payée.
         </p>
       </section>
 
