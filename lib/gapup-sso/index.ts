@@ -36,3 +36,9 @@ export async function requireProductAccess(serviceSlug: string): Promise<{
   if (!allowed) return null;
   return { userId: session.userId, exp: session.exp };
 }
+
+export {
+  verifyExchangeToken,
+  getUserAfterExchange,
+  type ExchangeResult,
+} from "./exchange-verify";
