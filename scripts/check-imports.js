@@ -52,6 +52,8 @@ for (const f of files) {
     const imp = m[1];
     if (imp.startsWith('.') || imp.startsWith('@/') || imp.startsWith('~/') || imp.startsWith('/')) continue;
     if (imp.startsWith('node:')) continue;
+    if (imp.startsWith('bun:')) continue;
+    if (imp.includes('${') || imp.includes('`')) continue;
     const root = imp.startsWith('@') ? imp.split('/').slice(0, 2).join('/') : imp.split('/')[0];
     if (builtins.has(root)) continue;
     if (!deps.has(root)) {
