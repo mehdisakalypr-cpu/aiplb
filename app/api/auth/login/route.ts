@@ -1,3 +1,4 @@
+import { autoLinkLegacyUser } from "@/lib/legacy-link";
 import { NextResponse } from "next/server";
 import { setSessionCookie, verifyClientPassword } from "@/lib/auth";
 
@@ -16,6 +17,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "invalid_credentials" }, { status: 401 });
     }
     await setSessionCookie(client.id);
+    void autoLinkLegacyUser(client.id, client.email);
     return NextResponse.json({ ok: true, redirect: "/mon-compte" });
   } catch (e) {
     const msg = e instanceof Error ? e.message : "internal_error";
