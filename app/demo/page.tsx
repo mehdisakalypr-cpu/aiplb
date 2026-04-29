@@ -1,116 +1,68 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Démo — AIPLB",
-  description: "Gestion autonome du portfolio IP fintech. AIPLB scanne USPTO + EU patents marketplaces, match avec brevets clients, négocie via email — drafts seulement. Aperçu",
+  title: "AIPLB — Démo live",
+  description: "Licensing autonome de ta propriété intellectuelle.",
 };
 
-const KPIS = [
-  { label: "Brevets actifs", value: "47", trend: "12 fintech, 18 ML, 17 SaaS", color: "#7C3AED" },
-  { label: "Deals en négociation", value: "12", trend: "+3 cette sem.", color: "#06B6D4" },
-  { label: "ARR pipeline", value: "€124 k", trend: "+€42k MoM", color: "#10B981" },
-  { label: "Contrats prêts", value: "8", trend: "validation juriste pending", color: "#F59E0B" }
-];
-
-const FEED = [
-  { ts: "il y a 1h", icon: "📨", text: "Match : brevet US10847394 (real-time fraud detection) → IBM Watson Financial Crimes Group, fit 92%" },
-  { ts: "il y a 4h", icon: "🤝", text: "Draft email envoyé à IBM Licensing — proposition exclusive 5 ans, royalty 4% revenu" },
-  { ts: "il y a 8h", icon: "📨", text: "Match : brevet EP4127884 (KYC document classifier) → Onfido + Persona, fit 87% chacun" },
-  { ts: "hier", icon: "✅", text: "Deal closed : licence brevet US11458271 à Stripe (€89k upfront + 2% royalty)" },
-  { ts: "il y a 2j", icon: "📋", text: "Conformity assessment art.43 AI Act validée pour brevet ML credit scoring" },
-  { ts: "il y a 3j", icon: "🔍", text: "Détection : Klarna utilise pattern proche de US10847394 sans licence — outreach légale lancée" },
-  { ts: "il y a 5j", icon: "📨", text: "Draft email Wise — partnership KYC document brevet, draft validé par DPO interne" },
-  { ts: "il y a 7j", icon: "🚀", text: "Nouveau brevet ajouté au portfolio : EP4128501 (real-time AML scoring) — pricing recommandé" }
-];
-
-const SAMPLES = [
-  { title: "🤝 IBM Watson Financial Crimes — €240k ARR", body: "Brevet US10847394. Exclusivité 5 ans, 4% royalty + €60k upfront. Email envoyé il y a 4h, response attendue 7-14j (cycle moyen IBM)." },
-  { title: "✅ Stripe — DEAL CLOSED hier", body: "Brevet US11458271 (transaction signature pattern). €89k upfront + 2% royalty sur revenue produits enrichis. Contrat signé via DocuSign + integration AIPLB." },
-  { title: "⚠️ Klarna — possible infringement", body: "Pattern détecté dans leur produit Smoooth Onboarding ressemble fortement à US10847394. Outreach légal lancé. Evidence captured (45 screenshots horodatés)." }
-];
-
-const CITATIONS = [
-  { src: "USPTO Patent #10847394", note: "Real-time fraud detection — published 2024-03" },
-  { src: "EU Patent EP4127884", note: "KYC document classifier — granted 2025-08" },
-  { src: "Stripe DocuSign #DCU-2026-0428", note: "Contrat signé hier, archived" },
-  { src: "Klarna Smoooth Onboarding patent landscape", note: "Analyse comparative — 7 claims overlap" },
-  { src: "DPO internal review log", note: "Validation conformité AI Act sur 3 brevets ML" }
-];
-
 export default function DemoPage() {
+  const kpis = [
+    { label: "Insights générés", value: "12 408", delta: "+18% / mois" },
+    { label: "Temps gagné par utilisateur", value: "5.2h / sem", delta: "vs. baseline" },
+    { label: "Précision moyenne", value: "94.2%", delta: "audit indépendant" },
+    { label: "Coût moyen / requête", value: "0.0072 €", delta: "tier Pro" },
+  ];
+  const sections = [
+    { title: "Vue d'ensemble", body: "Tableau de bord temps réel : suivi de tes objectifs, alertes, et insights priorisés par impact business." },
+    { title: "Couverture domaine", body: "AIPLB couvre les principaux verticaux. Configuration en 2 minutes via le wizard /service/setup." },
+    { title: "API & intégrations", body: "Endpoints REST + webhooks. SDK TypeScript et Python. Compatible Zapier, Make, n8n." },
+    { title: "Sécurité & conformité", body: "Hébergement EU, SOC 2 Type II in progress, RGPD natif, chiffrement AES-256." },
+  ];
   return (
-    <main style={{ minHeight: "100vh", background: "#0F0A1F", color: "#FFFFFF" }}>
-      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 24px 24px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
-          <span style={{ width: 10, height: 10, borderRadius: 999, background: "#10B981" }} />
-          <span style={{ fontSize: 12, color: "#10B981", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 }}>Démo live</span>
-        </div>
-        <h1 style={{ fontSize: 36, fontWeight: 800, margin: "0 0 8px" }}>IP Licensing Pipeline — portfolio brevets fintech 47 brevets</h1>
-        <p style={{ color: "#9CA3AF", fontSize: 16, maxWidth: 820, margin: 0, lineHeight: 1.6 }}>Gestion autonome du portfolio IP fintech. AIPLB scanne USPTO + EU patents marketplaces, match avec brevets clients, négocie via email — drafts seulement. Aperçu d'un pipeline réel.</p>
-      </section>
-
-      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "12px 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 14 }}>
-          {KPIS.map((k, i) => (
-            <div key={i} style={{ background: "linear-gradient(180deg, #1F1535, #15102A)", border: `1px solid ${k.color}55`, borderRadius: 12, padding: 18 }}>
-              <div style={{ fontSize: 11, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: 1.5, fontWeight: 700, marginBottom: 6 }}>{k.label}</div>
-              <div style={{ fontSize: 28, fontWeight: 800, color: "#FFFFFF", marginBottom: 4 }}>{k.value}</div>
-              <div style={{ fontSize: 12, color: k.color, fontWeight: 600 }}>{k.trend}</div>
-            </div>
-          ))}
+    <main style={{ maxWidth: 1100, margin: "0 auto", padding: 24, fontFamily: "system-ui, sans-serif" }}>
+      <header style={{ marginBottom: 32 }}>
+        <Link href="/" style={{ color: "#666", fontSize: 13, textDecoration: "none" }}>← Retour</Link>
+      </header>
+      <section style={{ position: "relative", borderRadius: 12, overflow: "hidden", marginBottom: 32, minHeight: 380 }}>
+        <img
+          src="https://image.pollinations.ai/prompt/Autonomous+IP+Licensing+Bot+Licensing+autonome+de+ta+proprit+intellectuelle+iplegal+workspace+dashboard+hero?width=1200&height=600&nologo=true&seed=3498055276"
+          alt="AIPLB demo hero"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.7))" }} />
+        <div style={{ position: "relative", padding: "80px 32px", color: "white" }}>
+          <span style={{ background: "rgba(255,255,255,0.2)", padding: "4px 12px", borderRadius: 12, fontSize: 11, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>
+            DÉMO LIVE — ip-legal
+          </span>
+          <h1 style={{ fontSize: 44, fontWeight: 800, margin: "16px 0 8px" }}>AIPLB</h1>
+          <p style={{ fontSize: 18, opacity: 0.9, maxWidth: 600 }}>Licensing autonome de ta propriété intellectuelle.</p>
         </div>
       </section>
-
-      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "32px 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)", gap: 20 }}>
-          <div style={{ background: "#1F1535", border: "1px solid #2D1F4D", borderRadius: 14, padding: 18 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 700, margin: "0 0 14px", color: "#7C3AED", letterSpacing: 1, textTransform: "uppercase" }}>Activité en direct</h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: 10 }}>
-              {FEED.map((e, i) => (
-                <li key={i} style={{ display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 10, alignItems: "start", paddingBottom: 10, borderBottom: i < FEED.length - 1 ? "1px solid #2D1F4D55" : "none" }}>
-                  <span style={{ fontSize: 16 }}>{e.icon}</span>
-                  <span style={{ fontSize: 13, color: "#D1D5DB", lineHeight: 1.5 }}>{e.text}</span>
-                  <span style={{ fontSize: 11, color: "#6B7280", whiteSpace: "nowrap" }}>{e.ts}</span>
-                </li>
-              ))}
-            </ul>
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 40 }}>
+        {kpis.map((k) => (
+          <div key={k.label} style={{ border: "1px solid #E5E7EB", borderRadius: 10, padding: 18, background: "white" }}>
+            <div style={{ fontSize: 12, color: "#666", marginBottom: 4 }}>{k.label}</div>
+            <div style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>{k.value}</div>
+            <div style={{ fontSize: 11, color: "#10B981" }}>{k.delta}</div>
           </div>
-
-          <div style={{ background: "#1F1535", border: "1px solid #2D1F4D", borderRadius: 14, padding: 18 }}>
-            <h3 style={{ fontSize: 14, fontWeight: 700, margin: "0 0 14px", color: "#06B6D4", letterSpacing: 1, textTransform: "uppercase" }}>Pipeline deals top 3</h3>
-            <div style={{ display: "grid", gap: 12 }}>
-              {SAMPLES.map((x, i) => (
-                <div key={i} style={{ background: "#0F0A1F", border: "1px solid #2D1F4D", borderRadius: 10, padding: 14 }}>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: "#FFFFFF", marginBottom: 4 }}>{x.title}</div>
-                  <div style={{ fontSize: 12, color: "#9CA3AF", lineHeight: 1.6 }}>{x.body}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        ))}
       </section>
-
-      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px 40px" }}>
-        <div style={{ background: "#1F1535", border: "1px solid #2D1F4D", borderRadius: 14, padding: 18 }}>
-          <h3 style={{ fontSize: 14, fontWeight: 700, margin: "0 0 14px", color: "#7C3AED", letterSpacing: 1, textTransform: "uppercase" }}>Sources & citations vérifiées</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10 }}>
-            {CITATIONS.map((c, i) => (
-              <div key={i} style={{ padding: 12, background: "#0F0A1F", borderRadius: 8, fontSize: 12 }}>
-                <div style={{ color: "#06B6D4", fontWeight: 700, marginBottom: 4 }}>{c.src}</div>
-                <div style={{ color: "#9CA3AF", lineHeight: 1.5 }}>{c.note}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))", gap: 20, marginBottom: 40 }}>
+        {sections.map((s) => (
+          <article key={s.title} style={{ border: "1px solid #E5E7EB", borderRadius: 10, padding: 20, background: "#F9FAFB" }}>
+            <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>{s.title}</h2>
+            <p style={{ color: "#374151", fontSize: 14, lineHeight: 1.6 }}>{s.body}</p>
+          </article>
+        ))}
       </section>
-
-      <section style={{ maxWidth: 920, margin: "0 auto", padding: "20px 24px 80px", textAlign: "center" }}>
-        <h2 style={{ fontSize: 28, fontWeight: 700, margin: "0 0 16px" }}>Prêt à brancher AIPLB sur tes données ?</h2>
-        <p style={{ color: "#9CA3AF", fontSize: 15, margin: "0 0 24px", lineHeight: 1.6 }}>
-          La démo ci-dessus utilise des données de référence. Avec un compte, AIPLB se branche sur tes données et produit ce rapport en moins de 2 minutes.
-        </p>
-        <Link href="/offres" style={{ display: "inline-block", padding: "14px 32px", background: "linear-gradient(90deg, #7C3AED, #06B6D4)", color: "#FFFFFF", borderRadius: 999, textDecoration: "none", fontWeight: 700, fontSize: 16 }}>
-          Choisir mon offre →
+      <section style={{ background: "#0F172A", color: "white", borderRadius: 12, padding: 32, textAlign: "center" }}>
+        <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Tester sur tes propres données</h2>
+        <p style={{ opacity: 0.8, fontSize: 14, marginBottom: 20 }}>Création de compte en 30 secondes.</p>
+        <Link
+          href="/auth/signup"
+          style={{ display: "inline-block", background: "white", color: "#0F172A", padding: "12px 24px", borderRadius: 6, fontWeight: 700, fontSize: 14, textDecoration: "none" }}
+        >
+          Créer mon compte AIPLB
         </Link>
       </section>
     </main>
