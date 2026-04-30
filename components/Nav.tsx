@@ -7,13 +7,17 @@ import TierPill from "./TierPill";
 
 type Me = { id: string; email: string; plan?: string; is_admin?: boolean } | null;
 
-const LINKS = [
+const PUBLIC_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/services", label: "Services" },
   { href: "/offres", label: "Offres" },
   { href: "/demo", label: "Démo" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
+];
+
+const LOGGED_LINKS = [
+  { href: "/dashboard", label: "Dashboard" },
 ];
 
 export default function Nav() {
@@ -60,7 +64,7 @@ export default function Nav() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          {LINKS.map((l) => {
+          {PUBLIC_LINKS.map((l) => {
             const active =
               l.href === "/" ? pathname === "/" : pathname?.startsWith(l.href);
             return (
@@ -77,6 +81,22 @@ export default function Nav() {
               </Link>
             );
           })}
+          {me ? LOGGED_LINKS.map((l) => {
+            const active = pathname?.startsWith(l.href);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={
+                  active
+                    ? "text-white font-semibold"
+                    : "text-[#A78BFA] hover:text-white transition font-semibold"
+                }
+              >
+                {l.label}
+              </Link>
+            );
+          }) : null}
           {me?.is_admin ? (
             <Link href="/admin" className={pathname?.startsWith("/admin") ? "text-white font-semibold" : "text-[#FACC15] hover:text-white transition font-semibold"}>
               Admin
@@ -109,6 +129,13 @@ export default function Nav() {
               {dropOpen && (
                 <div className="absolute right-0 top-full mt-1 w-44 rounded-md border border-[var(--border)] bg-[var(--background)] shadow-xl">
                   <Link
+                    href="/dashboard"
+                    onClick={() => setDropOpen(false)}
+                    className="block px-4 py-2.5 text-sm hover:bg-neutral-900 font-medium"
+                  >
+                    📊 Dashboard
+                  </Link>
+                                    <Link
                     href="/mon-compte"
                     onClick={() => setDropOpen(false)}
                     className="block px-4 py-2.5 text-sm hover:bg-neutral-900"
@@ -175,7 +202,7 @@ export default function Nav() {
               <TierPill plan={me.plan} />
             </div>
           ) : null}
-          {LINKS.map((l) => (
+          {PUBLIC_LINKS.map((l) => (
             <Link
               key={l.href}
               href={l.href}
