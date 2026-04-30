@@ -4,7 +4,9 @@ import bcrypt from "bcryptjs";
 import { supabaseService } from "./supabase-server";
 
 const COOKIE_NAME = "aiplb_session";
+const RESET_CLAIM_COOKIE = "aiplb_pwd_reset";
 const TOKEN_TTL_MIN = 30; // magic link
+const RESET_CLAIM_TTL_MIN = 15; // password reset claim
 const SESSION_TTL_DAYS = 30;
 
 function secret() {
@@ -160,3 +162,57 @@ export async function clientHasPassword(email: string): Promise<boolean> {
     .maybeSingle();
   return !!(data && data.password_hash);
 }
+
+// ── Password reset claim (limited cookie used after forgot-password magic link) ─
+
+export function makeResetClaim(userId: string, email: string) {
+  const exp = Date.now() + RESET_CLAIM_TTL_MIN * 60_000;
+  const body = `${userId}|${email.toLowerCase()}|${exp}`;
+  const sig = sign(body);
+  return Buffer.from(`${body}|${sig}`).toString("base64url");
+}
+
+export function verifyResetClaim(
+  token: string,
+): { userId: string; email: string } | null {
+  try {
+    const decoded = Buffer.from(token, "base64url").toString("utf8");
+    const [userId, email, expStr, sig] = decoded.split("|");
+    if (!userId || !email || !expStr || !sig) return null;
+    const expected = sign(`${userId}|${email}|${expStr}`);
+    if (expected !== sig) return null;
+    if (Date.now() > Number(expStr)) return null;
+    return { userId, email };
+  } catch {
+    return null;
+  }
+}
+
+export async function setResetClaimCookie(userId: string, email: string) {
+  const token = makeResetClaim(userId, email);
+  const c = await cookies();
+  c.set(RESET_CLAIM_COOKIE, token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    path: "/",
+    maxAge: RESET_CLAIM_TTL_MIN * 60,
+  });
+}
+
+export async function clearResetClaimCookie() {
+  const c = await cookies();
+  c.delete(RESET_CLAIM_COOKIE);
+}
+
+export async function getResetClaim(): Promise<{
+  userId: string;
+  email: string;
+} | null> {
+  const c = await cookies();
+  const token = c.get(RESET_CLAIM_COOKIE)?.value;
+  if (!token) return null;
+  return verifyResetClaim(token);
+}
+
+export const RESET_CLAIM_COOKIE_NAME = RESET_CLAIM_COOKIE;

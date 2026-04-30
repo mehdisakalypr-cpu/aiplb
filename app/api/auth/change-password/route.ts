@@ -5,11 +5,22 @@ import {
   verifyClientPassword,
   clientHasPassword,
 } from "@/lib/auth";
+import { requireSameOrigin } from "@/lib/auth-csrf";
 
 export const runtime = "nodejs";
 
+/**
+ * Change-password — used both by:
+ *   - logged-in users updating their password from /mon-compte
+ *   - users arriving via the forgot-password magic link (no current password
+ *     known yet — they're authed by the magic cookie). We accept current=""
+ *     in that case ONLY when the account has never set a password.
+ */
 export async function POST(req: Request) {
   try {
+    const csrf = requireSameOrigin(req);
+    if (csrf) return csrf;
+
     const me = await getSessionUser();
     if (!me) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
 
@@ -23,6 +34,9 @@ export async function POST(req: Request) {
 
     const hadPwd = await clientHasPassword(me.email);
 
+    // If the account already has a password, require the current one (or magic
+    // session token, which we already validated via getSessionUser — but we
+    // still want a guardrail against session hijack: require current pwd).
     if (hadPwd) {
       if (!currentPwd) {
         return NextResponse.json({ error: "current_password_required" }, { status: 400 });

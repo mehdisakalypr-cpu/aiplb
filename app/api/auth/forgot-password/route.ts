@@ -2,16 +2,38 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { makeMagicToken } from "@/lib/auth";
 import { supabaseService } from "@/lib/supabase-server";
+import {
+  clientIp,
+  rateLimitForgot,
+  rateLimitResponse,
+} from "@/lib/auth-rate-limit";
+import { requireSameOrigin } from "@/lib/auth-csrf";
 
 export const runtime = "nodejs";
 
+/**
+ * Forgot-password flow.
+ *
+ * The magic-link mechanism (custom HMAC, lib/auth.ts) is repurposed as a
+ * password-recovery channel: the user receives a short-lived sign-in link
+ * that drops them on /mon-compte where they can set a new password.
+ *
+ * To avoid leaking which emails are registered, the route always returns
+ * `{ ok: true }` regardless of whether the email matches an existing client.
+ */
 export async function POST(req: Request) {
   try {
+    const csrf = requireSameOrigin(req);
+    if (csrf) return csrf;
+
     const body = await req.json().catch(() => null);
     const email = typeof body?.email === "string" ? body.email.trim().toLowerCase() : "";
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
       return NextResponse.json({ error: "email_required" }, { status: 400 });
     }
+
+    const rl = rateLimitForgot(clientIp(req));
+    if (!rl.allowed) return rateLimitResponse(rl);
 
     const sb = supabaseService();
     const { data: client } = await sb
@@ -36,11 +58,11 @@ export async function POST(req: Request) {
         await resend.emails.send({
           from,
           to: email,
-          subject: "Réinitialiser votre mot de passe IP Licensing Bot",
+          subject: "Réinitialiser votre mot de passe AICI",
           html: `<div style="font-family:system-ui,sans-serif;max-width:480px">
             <p>Vous avez demandé un lien de connexion pour modifier votre mot de passe.</p>
-            <p><a href="${link}" style="display:inline-block;padding:10px 16px;background:#10B981;color:#fff;border-radius:6px;text-decoration:none">Se connecter et modifier mon mot de passe</a></p>
-            <p style="color:#666;font-size:12px">Lien valable 30 minutes. Si vous n&apos;avez pas fait cette demande, ignorez ce mail.</p>
+            <p><a href="${link}" style="display:inline-block;padding:10px 16px;background:#7C3AED;color:#fff;border-radius:6px;text-decoration:none">Se connecter et modifier mon mot de passe</a></p>
+            <p style="color:#666;font-size:12px">Lien valable 30 minutes. Si vous n'avez pas fait cette demande, ignorez ce mail.</p>
             <p style="color:#888;font-size:11px;word-break:break-all">${link}</p>
           </div>`,
         });
@@ -49,6 +71,7 @@ export async function POST(req: Request) {
       }
     }
 
+    // Always return ok to prevent email enumeration.
     return NextResponse.json({ ok: true });
   } catch (e) {
     const msg = e instanceof Error ? e.message : "internal_error";
