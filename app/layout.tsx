@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ChatbotWidget from "@/components/ChatbotWidget";
 import "./globals.css";
+import AllAccessPromoBanner from '@/components/AllAccessPromoBanner';
 
 export const metadata: Metadata = {
   title: "IP Licensing Bot — Surveillance concurrentielle à la demande",
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <body>
+        <AllAccessPromoBanner />
         <Nav />
         <div className="min-h-[calc(100vh-160px)]">{children}</div>
         <Footer />
