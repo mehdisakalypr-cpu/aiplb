@@ -1,11 +1,14 @@
 import Link from "next/link";
+import { getSessionUser } from "@/lib/auth";
 
 export const metadata = {
   title: "AIPLB — Démo live",
   description: "Licensing autonome de ta propriété intellectuelle.",
 };
 
-export default function DemoPage() {
+export default async function DemoPage() {
+  const user = await getSessionUser().catch(() => null);
+  const isLoggedIn = !!user;
   const kpis = [
     { label: "Insights générés", value: "12 408", delta: "+18% / mois" },
     { label: "Temps gagné par utilisateur", value: "5.2h / sem", delta: "vs. baseline" },
