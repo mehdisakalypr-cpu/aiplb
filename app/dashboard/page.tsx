@@ -224,6 +224,23 @@ export default function Dashboard() {
                     ? `dernier rapport : ${new Date(c.last_snapshot_at).toLocaleString("fr-FR")}`
                     : "aucun rapport encore"}
                 </div>
+                {c.last_snapshot_at && (
+                  <Link
+                    href={`/dashboard/competitors/${c.id}`}
+                    style={{
+                      padding: "8px 12px",
+                      background: "#10B981",
+                      color: "#FFFFFF",
+                      border: "none",
+                      borderRadius: 6,
+                      fontWeight: 600,
+                      fontSize: 13,
+                      textDecoration: "none",
+                    }}
+                  >
+                    📄 Voir rapport
+                  </Link>
+                )}
                 <button
                   onClick={() => generate(c.id)}
                   disabled={busyId === c.id}
@@ -238,7 +255,7 @@ export default function Dashboard() {
                     opacity: busyId === c.id ? 0.6 : 1,
                   }}
                 >
-                  {busyId === c.id ? "..." : "Go"}
+                  {busyId === c.id ? "..." : c.last_snapshot_at ? "🔄 Rafraîchir" : "Go"}
                 </button>
               </div>
             ))
