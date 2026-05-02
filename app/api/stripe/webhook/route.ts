@@ -34,6 +34,7 @@ export async function POST(req: Request) {
               stripe_customer_id: s.customer,
               stripe_subscription_id: s.subscription,
               status: "active",
+              subscription_active: true,
             })
             .eq("id", userId);
         }
@@ -49,6 +50,7 @@ export async function POST(req: Request) {
             .update({
               status: sub.status,
               plan: event.type === "customer.subscription.deleted" ? "cancelled" : sub.metadata?.plan,
+              subscription_active: event.type !== "customer.subscription.deleted" && sub.status === "active",
             })
             .eq("id", userId);
         }
