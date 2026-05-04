@@ -4,7 +4,6 @@ import SectionLiveExample from "./_components/SectionLiveExample";
 import SectionHowItWorks from "./_components/SectionHowItWorks";
 import SectionUseCases from "./_components/SectionUseCases";
 import SectionCompetitors from "./_components/SectionCompetitors";
-import SectionSocialProof from "./_components/SectionSocialProof";
 import SectionPricingTeaser from "./_components/SectionPricingTeaser";
 import SectionSecurity from "./_components/SectionSecurity";
 import SectionFAQ from "./_components/SectionFAQ";
@@ -35,7 +34,6 @@ export default function DemoPage() {
       <SectionHowItWorks />
       <SectionUseCases />
       <SectionCompetitors />
-      <SectionSocialProof />
       <SectionPricingTeaser />
       <SectionSecurity />
       <SectionSample />

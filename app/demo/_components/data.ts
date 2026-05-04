@@ -201,27 +201,6 @@ export const COMPARISON_RADAR = [
   { metric: "Pricing accessible", Patently: 90, ClearViewIP: 35, PatSnap: 40 },
 ];
 
-export const TESTIMONIALS = [
-  {
-    quote: "On a activé 14 brevets dormants en 90 jours. Le claim chart auto sur Memory bus a sorti un settlement Apple à $48M qu'aucun cabinet n'avait identifié.",
-    author: "Dr. P. Martin",
-    role: "Head of IP, French aerospace mid-cap",
-    metric: "+€48M settlement Apple",
-  },
-  {
-    quote: "Pour un TTO universitaire avec 200 brevets, c'est game-changer. La negociation playbook respecte les guidelines AUTM et m'a fait gagner 6 mois de cycle.",
-    author: "Prof. S. Dubois",
-    role: "Tech Transfer Office, ENS-Polytechnique",
-    metric: "Cycle -52%",
-  },
-  {
-    quote: "Le defensive cross-license generator a sorti 4 brevets qu'on avait oubliés du portefeuille parent. Counterclaim crédible, NPE a settle pour 1/3 de leur demande.",
-    author: "Maître C. Laurent",
-    role: "Of-Counsel IP, MoFo Paris",
-    metric: "Settlement -67%",
-  },
-];
-
 export const PRICING_TIERS = [
   {
     name: "Single",
