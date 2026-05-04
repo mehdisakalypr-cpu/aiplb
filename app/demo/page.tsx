@@ -11,6 +11,7 @@ import SectionFAQ from "./_components/SectionFAQ";
 import SectionSample from "./_components/SectionSample";
 import SectionFinalCTA from "./_components/SectionFinalCTA";
 
+import SectionClusterShowcase from "./_components/SectionClusterShowcase";
 export const metadata = {
   title: "Patently — Démo live · Claim chart auto · Royalties détectés · IP Licensing Bot",
   description:
@@ -30,6 +31,7 @@ export default function DemoPage() {
       <SectionHero />
       <SectionProblem />
       <SectionLiveExample />
+      <SectionClusterShowcase />
       <SectionHowItWorks />
       <SectionUseCases />
       <SectionCompetitors />
