@@ -6,6 +6,7 @@ import ChatbotWidget from "@/components/ChatbotWidget";
 import "./globals.css";
 import AllAccessPromoBanner from '@/components/AllAccessPromoBanner';
 import CookieBanner from '@/components/CookieBanner';
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 export const metadata: Metadata = {
   title: "IP Licensing Bot — Surveillance concurrentielle à la demande",
@@ -44,6 +45,7 @@ export default function RootLayout({
         <CookieBanner />
         <ChatbotWidget />
         <Analytics />
+              <AnalyticsTracker />
       </body>
     </html>
   );
